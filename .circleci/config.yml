@@ -17,9 +17,15 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+
+jobs:
+  npm-install:
+  steps:
+      - checkout
       - run: npm install
       - run: npm test
       - run: npm run lint
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -27,3 +33,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+  install-npm:
+    jobs:
+      - npm-install
