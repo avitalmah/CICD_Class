@@ -11,7 +11,7 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
+      - node/with_cache:
           steps:
             - run: npm install
             - run: npm test
