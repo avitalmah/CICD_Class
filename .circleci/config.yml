@@ -18,8 +18,6 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
   npm-install:
-    docker:
-      - image: cimg/base:stable
       steps:
         - node/with-cache:
             steps:
