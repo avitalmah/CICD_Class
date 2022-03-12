@@ -18,12 +18,12 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
   npm-install:
-    steps:
-      - checkout
-      - run: npm install
-
-      - run: npm test
-      - run: npm run lint
+      - node/with-cache:
+          steps:
+            - checkout
+            - run: npm install
+            - run: npm test
+            - run: npm run lint
 
 
 # Invoke jobs via workflows
