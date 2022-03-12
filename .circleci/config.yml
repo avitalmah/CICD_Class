@@ -20,7 +20,7 @@ jobs:
   npm-install:
     docker:
       - image: cimg/base:stable
-    - node/with-cache:
+      - node/with-cache:
         steps:
           - checkout
           - run: npm install
