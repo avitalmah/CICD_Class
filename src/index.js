@@ -6,14 +6,6 @@ const mongoose = require('mongoose');
 
 //  const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = 'mongodb+srv://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/check?retryWrites=true&w=majority';
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// client.connect(err => {
-//   const Cat = mongoose.model('Cat', { name: String });
-//   const kitty = new Cat({ name: 'Zildjian' });
-//   kitty.save().then(() => console.log('meow'));
-//   client.close();
-// });
-
 
 const app = express();
 
