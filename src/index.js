@@ -2,16 +2,13 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
+//  const dbUrl = mongodb+srv+"://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-
-//const dbUrl = mongodb+srv+"://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
+//  const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = 'mongodb+srv://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/check?retryWrites=true&w=majority';
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 // client.connect(err => {
 //   const Cat = mongoose.model('Cat', { name: String });
-
 //   const kitty = new Cat({ name: 'Zildjian' });
 //   kitty.save().then(() => console.log('meow'));
 //   client.close();
