@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
@@ -5,7 +6,7 @@ const mongoose = require('mongoose');
 //  const dbUrl = mongodb+srv+"://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 //  const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = 'mongodb+srv://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/check?retryWrites=true&w=majority';
+const dbUri = process.env.uri;
 
 const app = express();
 
@@ -19,9 +20,9 @@ const connectionParams = {
   useUnifiedTopology: true,
 };
 
-mongoose.connect(uri, connectionParams).then(() => {
+mongoose.connect(dbUri, connectionParams).then(() => {
   console.log('MongoDB Connected');
-  const kitty = new Cat({name: 'avi'});
+  const kitty = new Cat({name: 'dani'});
   kitty.save().then(() => console.log('meow'));
   console.log('Hii');
 }).catch((err) => console.log(err));
