@@ -29,10 +29,10 @@ const connectionParams = {
 
 mongoose.connect(uri, connectionParams).then(() => {
   console.log('MongoDB Connected');
-  const kitty = new Cat({ name: 'avi' });
+  const kitty = new Cat({name: 'avi'});
   kitty.save().then(() => console.log('meow'));
   console.log('Hii');
-}).catch(err => console.log(err));
+}).catch((err) => console.log(err));
 const Cat = mongoose.model('Cat', {name: String});
 
 app.listen(port, () => {
