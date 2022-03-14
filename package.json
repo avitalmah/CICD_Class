@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/avitalmah/CICD_Class#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mongoose": "^6.2.6"
   },
   "devDependencies": {
     "chai": "^4.3.6",
