@@ -24,18 +24,16 @@ app.get('/', (req, res) => {
 
 const connectionParams = {
   useNewUrlParser: true,
-  useUnifiedTopology: true
-}
+  useUnifiedTopology: true,
+};
 
 mongoose.connect(uri, connectionParams).then(() => {
   console.log('MongoDB Connected');
-  const kitty = new Cat({ name: 'Zildjian' });
+  const kitty = new Cat({ name: 'avi' });
   kitty.save().then(() => console.log('meow'));
   console.log('Hii');
 }).catch(err => console.log(err));
-const Cat = mongoose.model('Cat', { name: String });
-
-
+const Cat = mongoose.model('Cat', {name: String});
 
 app.listen(port, () => {
   console.log(`Server is up and running on http://127.0.0.1:${port}`);
