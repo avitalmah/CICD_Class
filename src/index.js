@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8301;
 const mongoose = require('mongoose');
 
 //  const dbUrl = mongodb+srv+"://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
@@ -11,7 +11,7 @@ const dbUri = process.env.uri;
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hellow World </h1>');
+  res.send('<h1>Hellow 5 World </h1>');
 });
 
 
