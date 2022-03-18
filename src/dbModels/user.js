@@ -13,6 +13,13 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  country: String,
+  city: String,
+  street: String,
+  streetNumber: String,
+  aptNumber: String,
+  zip: String,
 });
 
 module.exports = mongoose.model('User', UserSchema);
+

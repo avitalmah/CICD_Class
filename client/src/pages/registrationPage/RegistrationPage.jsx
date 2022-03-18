@@ -5,6 +5,18 @@ import countryList from 'react-select-country-list'
 import Select from 'react-select'
 
 const RegistrationPage = () => {
+    const [user, setUser] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: "",
+        country: "",
+        city: "",
+        street: "",
+        street_number: "",
+        apt_number: "",
+        zip: "",
+    })
     // here some logic
     // const history = useHistory();
     const [firstName, setFirstName] = useState("");
@@ -20,13 +32,15 @@ const RegistrationPage = () => {
     const options = useMemo(() => countryList().getData(), []);
 
     useEffect(() => {
-        console.log(userEmail, country,firstName,zip)
-    }, [userEmail, country,firstName,zip])
+        console.log(userEmail, country, firstName, zip)
+    }, [userEmail, country, firstName, zip])
 
     const handleChange = (event) => {
         switch (event.target.name) {
             case "user-email":
                 setUserEmail(event.target.value)
+                console.log("Working");
+                console.log(user.first_name);
                 break;
             case "first-name":
                 setFirstName(event.target.value)
@@ -52,9 +66,12 @@ const RegistrationPage = () => {
             case "user-zip":
                 setZip(event.target.value)
                 break;
+            case "submit-button":
+                window.alert("HIII")
+                break;
         }
     };
-    
+
     const countryHandler = country => {
         setCountry(country.label);
     };
@@ -162,7 +179,7 @@ const RegistrationPage = () => {
                                                     </Form.Group>
                                                 </div>
                                             </div>
-                                            <Button variant="primary" type="submit" >
+                                            <Button name="submit-button" variant="primary" type="submit" onClick={(event) => handleChange(event)}>
                                                 Submit
                                             </Button>
 
