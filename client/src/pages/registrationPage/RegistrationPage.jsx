@@ -32,48 +32,60 @@ const RegistrationPage = () => {
     const options = useMemo(() => countryList().getData(), []);
 
     useEffect(() => {
-        console.log(userEmail, country, firstName, zip)
-    }, [userEmail, country, firstName, zip])
+        console.log(userEmail, country, zip)
+    }, [userEmail, country, zip])
 
     const handleChange = (event) => {
         switch (event.target.name) {
             case "user-email":
                 setUserEmail(event.target.value)
-                console.log("Working");
-                console.log(user.first_name);
+                user.email=(event.target.value);
                 break;
             case "first-name":
                 setFirstName(event.target.value)
+                                
+                user.first_name=(event.target.value);
+                console.log(user.first_name +"  Working");
+                console.log(user.first_name);
                 break;
             case "last-name":
                 setLastName(event.target.value)
+                user.last_name=(event.target.value);
+                console.log(user.first_name +"  Working2");
                 break;
             case "user-password":
                 setPassword(event.target.value)
+                user.password=(event.target.value);
                 break;
             case "user-city":
                 setCity(event.target.value)
+                user.city=(event.target.value);
                 break;
             case "user-street":
                 setStreet(event.target.value)
+                user.street=(event.target.value);
                 break;
             case "user-street-num":
                 setStreetNumber(event.target.value)
+                user.street_number=(event.target.value);
                 break;
             case "user-apt-num":
                 setAptNumber(event.target.value)
+                user.apt_number=(event.target.value);
                 break;
             case "user-zip":
                 setZip(event.target.value)
+                user.zip=(event.target.value);
                 break;
             case "submit-button":
-                window.alert("HIII")
+                console.log(user)
                 break;
         }
     };
 
     const countryHandler = country => {
         setCountry(country.label);
+        user.country=(country.label);
     };
 
     return (
