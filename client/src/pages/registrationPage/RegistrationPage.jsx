@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import axios from "axios";
 // import { useHistory } from "react-router-dom";
 import { Form, Button } from 'react-bootstrap'
 import countryList from 'react-select-country-list'
@@ -78,7 +79,8 @@ const RegistrationPage = () => {
                 user.zip=(event.target.value);
                 break;
             case "submit-button":
-                console.log(user)
+                register();
+                console.log(user);
                 break;
         }
     };
@@ -87,6 +89,13 @@ const RegistrationPage = () => {
         setCountry(country.label);
         user.country=(country.label);
     };
+
+    const register = ()=>{
+        window.alert("HII")
+         axios.post("http://localhost:8301/Register",user )
+         .then(res=>console.log(res))
+        }
+
 
     return (
         <div >
