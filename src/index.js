@@ -40,7 +40,8 @@ app.post('/Register', (req, res) => {
   console.log(req.body);
   User.findOne({email: req.body.email}, (err, user) => {
     if (user) {
-      return res.status(400).json({email: 'Email already exists'});
+      console.log('emaiil is already exist');
+      return res.status(401).json({email: 'Email already exists'});
     } else {
       const user = new User({
         firstName: req.body.first_name,
@@ -64,6 +65,22 @@ app.post('/Register', (req, res) => {
     }
   });
 });
+
+app.post("/Login",(req,res)=>{
+  const {email,password} =req.body;
+  User.findOne({email:email},(err,user)=>{
+      if(user){
+         if(password === user.password){
+             res.send({message:"login sucess",user:user})
+         }else{
+             res.send({message:"wrong credentials"})
+         }
+      }else{
+          res.send("not register")
+      }
+  })
+});
+
 
 app.listen(port, () => {
   console.log(`Server is up and running on http://127.0.0.1:${port}`);
