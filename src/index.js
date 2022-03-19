@@ -40,7 +40,7 @@ app.post('/Register', (req, res) => {
   console.log(req.body);
   User.findOne({email: req.body.email}, (err, user) => {
     if (user) {
-      res.send({message: 'user already exist'});
+      return res.status(400).json({email: 'Email already exists'});
     } else {
       const user = new User({
         firstName: req.body.first_name,

@@ -40,43 +40,43 @@ const RegistrationPage = () => {
         switch (event.target.name) {
             case "user-email":
                 setUserEmail(event.target.value)
-                user.email=(event.target.value);
+                user.email = (event.target.value);
                 break;
             case "first-name":
                 setFirstName(event.target.value)
-                                
-                user.first_name=(event.target.value);
-                console.log(user.first_name +"  Working");
+
+                user.first_name = (event.target.value);
+                console.log(user.first_name + "  Working");
                 console.log(user.first_name);
                 break;
             case "last-name":
                 setLastName(event.target.value)
-                user.last_name=(event.target.value);
-                console.log(user.first_name +"  Working2");
+                user.last_name = (event.target.value);
+                console.log(user.first_name + "  Working2");
                 break;
             case "user-password":
                 setPassword(event.target.value)
-                user.password=(event.target.value);
+                user.password = (event.target.value);
                 break;
             case "user-city":
                 setCity(event.target.value)
-                user.city=(event.target.value);
+                user.city = (event.target.value);
                 break;
             case "user-street":
                 setStreet(event.target.value)
-                user.street=(event.target.value);
+                user.street = (event.target.value);
                 break;
             case "user-street-num":
                 setStreetNumber(event.target.value)
-                user.street_number=(event.target.value);
+                user.street_number = (event.target.value);
                 break;
             case "user-apt-num":
                 setAptNumber(event.target.value)
-                user.apt_number=(event.target.value);
+                user.apt_number = (event.target.value);
                 break;
             case "user-zip":
                 setZip(event.target.value)
-                user.zip=(event.target.value);
+                user.zip = (event.target.value);
                 break;
             case "submit-button":
                 register();
@@ -87,14 +87,13 @@ const RegistrationPage = () => {
 
     const countryHandler = country => {
         setCountry(country.label);
-        user.country=(country.label);
+        user.country = (country.label);
     };
 
-    const register = ()=>{
-        window.alert("HII")
-         axios.post("http://localhost:8301/Register",user )
-         .then(res=>console.log(res))
-        }
+    const register = () => {
+        axios.post("http://localhost:8301/Register", user)
+            .then(res => console.log(res))
+    }
 
 
     return (
