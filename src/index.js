@@ -21,7 +21,6 @@ app.get('/', (req, res) => {
 
 // const dbUri = process.env.uri;
 
-console.log("dbUri");
 console.log(dbUrl);
 
 const connectionParams = {
@@ -39,12 +38,10 @@ const Cat = mongoose.model('Cat', {name: String});
 
 app.post('/Register', (req, res) => {
   console.log(req.body);
-  // const {firstName,lastName,email,password,country,city,street,streetNumber,aptNumber,zip} =req.body;
   User.findOne({email: req.body.email}, (err, user) => {
     if (user) {
       res.send({message: 'user already exist'});
     } else {
-      // const user = new User({firstName,lastName,email,password,country,city,street,streetNumber,aptNumber,zip})
       const user = new User({
         firstName: req.body.first_name,
         lastName: req.body.last_name,
