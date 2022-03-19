@@ -31,18 +31,18 @@ const connectionParams = {
 
 mongoose.connect(dbUrl, connectionParams).then(() => {
   console.log('MongoDB Connected');
-  const kitty = new Cat({ name: 'dani' });
+  const kitty = new Cat({name: 'dani'});
   kitty.save().then(() => console.log('meow'));
   console.log('Hii');
 }).catch((err) => console.log(err));
-const Cat = mongoose.model('Cat', { name: String });
+const Cat = mongoose.model('Cat', {name: String});
 
 app.post('/Register', (req, res) => {
   console.log(req.body);
   // const {firstName,lastName,email,password,country,city,street,streetNumber,aptNumber,zip} =req.body;
-  User.findOne({ email: req.body.email }, (err, user) => {
+  User.findOne({email: req.body.email}, (err, user) => {
     if (user) {
-      res.send({ message: 'user already exist' })
+      res.send({message: 'user already exist'});
     } else {
       // const user = new User({firstName,lastName,email,password,country,city,street,streetNumber,aptNumber,zip})
       const user = new User({
@@ -56,18 +56,16 @@ app.post('/Register', (req, res) => {
         streetNumber: req.body.street_number,
         aptNumber: req.body.apt_number,
         zip: req.body.zip,
-      })
-      user.save(err => {
+      });
+      user.save((err) => {
         if (err) {
-          res.send(err)
+          res.send(err);
         } else {
-          res.send({ message: 'sucessfull' })
+          res.send({message: 'sucessfull'});
         }
-      })
+      });
     }
-  })
-
-
+  });
 });
 
 app.listen(port, () => {
