@@ -1,22 +1,38 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap';
+import axios from "axios";
+
 
 const LoginPage = () => {
   // here some logic
   const history = useHistory();
-  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
 
   useEffect(() => {
-    console.log(userName)
-  }, [userName])
+    console.log(userEmail, userPassword)
+  }, [userEmail, userPassword])
 
   const handleChange = (event) => {
     switch (event.target.name) {
-      case "user-name":
-        setUserName(event.target.value)
+      case "user-email":
+        setUserEmail(event.target.value)
+        break;
+      case "user-password":
+        setUserPassword(event.target.value)
         break;
     }
+  }
+  const login = () => {
+    axios.post("http://localhost:8301/Login", {
+      email: userEmail,
+      password: userPassword,
+    })
+      .then(res => {
+        alert(res.data.message);
+        history.push("/About");
+      })
   }
 
   return (
@@ -34,7 +50,7 @@ const LoginPage = () => {
 
                       <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control required type="email" name="user-name" placeholder="Enter email" value={userName} onChange={(event) => handleChange(event)} />
+                        <Form.Control required type="email" name="user-email" placeholder="Enter email" value={userEmail} onChange={(event) => handleChange(event)} />
                         <Form.Text className="text-muted">
                           We'll never share your email with anyone else.
                         </Form.Text>
@@ -44,10 +60,10 @@ const LoginPage = () => {
 
                       <Form.Group className="mb-4" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control required type="password" placeholder="Password" />
+                        <Form.Control required type="password" name="user-password" placeholder="Password" value={userPassword} onChange={(event) => handleChange(event)} />
                       </Form.Group>
 
-                      <Button variant="primary" type="submit" >
+                      <Button name="submit-button" variant="primary" type="submit" onClick={login} >
                         Submit
                       </Button>
 
