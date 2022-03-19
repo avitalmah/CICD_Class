@@ -30,18 +30,18 @@ const connectionParams = {
 
 mongoose.connect(dbUrl, connectionParams).then(() => {
   console.log('MongoDB Connected');
-  const kitty = new Cat({ name: 'dani' });
+  const kitty = new Cat({name: 'dani'});
   kitty.save().then(() => console.log('meow'));
   console.log('Hii');
 }).catch((err) => console.log(err));
-const Cat = mongoose.model('Cat', { name: String });
+const Cat = mongoose.model('Cat', {name: String});
 
 app.post('/Register', (req, res) => {
   console.log(req.body);
-  User.findOne({ email: req.body.email }, (err, user) => {
+  User.findOne({email: req.body.email}, (err, user) => {
     if (user) {
       console.log('emaiil is already exist');
-      return res.status(401).json({ email: 'Email already exists' });
+      return res.status(401).json({email: 'Email already exists'});
     } else {
       const user = new User({
         firstName: req.body.first_name,
@@ -59,7 +59,7 @@ app.post('/Register', (req, res) => {
         if (err) {
           res.send(err);
         } else {
-          res.send({ message: 'sucessfull' });
+          res.send({message: 'sucessfull'});
         }
       });
     }
@@ -78,7 +78,7 @@ app.post('/Login', (req, res) => {
     } else {
       res.send('not register');
     }
-  })
+  });
 });
 
 
