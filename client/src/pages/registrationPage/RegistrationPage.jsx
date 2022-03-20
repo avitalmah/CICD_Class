@@ -91,7 +91,7 @@ const RegistrationPage = () => {
     };
 
     const register = () => {
-        axios.post("http://localhost:8301/Register", user)
+        axios.post("http://localhost:5000/Register", user)
             .then(res => console.log(res)).catch((err) => {
                 alert(err);})
     }

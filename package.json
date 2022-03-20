@@ -7,7 +7,11 @@
     "dev": "node src/index.js",
     "start": "node src/index.js",
     "test": "mocha tests/*.spec.js --color",
-    "lint": "eslint src/* --color"
+    "lint": "eslint src/* --color",
+    "client-install": "npm install --prefix client",
+    "server": "nodemon src/index.js",
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",

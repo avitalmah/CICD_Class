@@ -1,9 +1,10 @@
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
-const port = process.env.PORT || 8301;
+const port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const User = require('./dbModels/user');
+const path = require('path');
 
 // const dbUrl = mongodb+srv+"://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const dbUrl = 'mongodb+srv://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
@@ -81,6 +82,14 @@ app.post('/Login', (req, res) => {
   });
 });
 
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 app.listen(port, () => {
   console.log(`Server is up and running on http://127.0.0.1:${port}`);
