@@ -5,6 +5,8 @@ import axios from "axios";
 
 
 const LoginPage = () => {
+  const baseURL = process.env.NODE_ENV === "production"?"/Login":"http://localhost:5000/Login";
+
   // here some logic
   const history = useHistory();
   const [userEmail, setUserEmail] = useState("");
@@ -25,7 +27,7 @@ const LoginPage = () => {
     }
   }
   const login = () => {
-    axios.post("http://localhost:5000/Login", {
+    axios.post(baseURL, {
       email: userEmail,
       password: userPassword,
     })

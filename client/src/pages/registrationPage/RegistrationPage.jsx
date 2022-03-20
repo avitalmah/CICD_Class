@@ -6,6 +6,8 @@ import countryList from 'react-select-country-list'
 import Select from 'react-select'
 
 const RegistrationPage = () => {
+    const baseURL = process.env.NODE_ENV === "production"?"/Register":"http://localhost:5000/Register";
+
     const [user, setUser] = useState({
         first_name: "",
         last_name: "",
@@ -91,7 +93,7 @@ const RegistrationPage = () => {
     };
 
     const register = () => {
-        axios.post("http://localhost:5000/Register", user)
+        axios.post(baseURL, user)
             .then(res => console.log(res)).catch((err) => {
                 alert(err);})
     }
