@@ -24,11 +24,8 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 }
-else {
-  app.get('/', (req, res) => {
-    res.send('.');
-  });
-}
+
+
 // const dbUri = process.env.uri;
 
 console.log(dbUrl);
