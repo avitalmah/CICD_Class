@@ -16,10 +16,19 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hellow 5 World </h1>');
-});
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, '../client/build')));
 
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+}
+else{
+  app.get('/', (req, res) => {
+    res.send('.');
+  });
+}
 // const dbUri = process.env.uri;
 
 console.log(dbUrl);
@@ -81,15 +90,6 @@ app.post('/Login', (req, res) => {
     }
   });
 });
-
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static(path.join(__dirname, '../client/build')));
-
-  app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
-}
 
 app.listen(port, () => {
   console.log(`Server is up and running on http://127.0.0.1:${port}`);
