@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 }
-else{
+else {
   app.get('/', (req, res) => {
     res.send('.');
   });
