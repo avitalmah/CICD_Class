@@ -10,7 +10,6 @@ const path = require('path');
 const dbUrl = 'mongodb+srv://theperfectgroup8:project2022@sceproject.aalci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 //  const { MongoClient, ServerApiVersion } = require('mongodb');
-//  const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const app = express();
 app.use(express.json());
