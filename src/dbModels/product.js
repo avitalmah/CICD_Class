@@ -15,7 +15,7 @@ const ProductSchema = new Schema({
   category: {
     type: String,
     required: true,
-  }, 
+  },
   color: {
     type: String,
     required: true,
@@ -35,7 +35,7 @@ const ProductSchema = new Schema({
   image: {
     type: String,
     required: true,
-  }
+  },
 });
 
 module.exports = mongoose.model('Product', ProductSchema);
