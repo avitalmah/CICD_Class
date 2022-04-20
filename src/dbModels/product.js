@@ -1,49 +1,42 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  email: {
+const ProductSchema = new Schema({
+
+  title: {
     type: String,
     required: true,
     unique: true,
   },
-  password: {
+  description: {
     type: String,
     required: true,
   },
-  country: {
+  category: {
     type: String,
     required: true,
   },
-  city: {
+  color: {
     type: String,
     required: true,
   },
-  street: {
-    type: String,
-    required: true,
-  },
-  streetNumber: {
+  price: {
     type: Number,
     required: true,
   },
-  aptNumber: {
+  numberInStock: {
     type: Number,
     required: true,
   },
-  zip: {
-    type: Number,
+  type: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
     required: true,
   },
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Product', ProductSchema);
 
