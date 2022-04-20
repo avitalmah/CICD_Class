@@ -86,7 +86,7 @@ app.post('/Login', (req, res) => {
       res.send('not register');
     }
   });
-}); 
+});
 app.use('./router/api/product', productRouter);
 app.listen(port, () => {
   console.log(`Server is up and running on http://127.0.0.1:${port}`);
