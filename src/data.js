@@ -1,4 +1,4 @@
-export const data = {
+const data = {
   products: [
     {
       title: 'Black Bag',
@@ -45,5 +45,5 @@ export const data = {
     
   ],
 };
-// export default data;
+export default data;
 
