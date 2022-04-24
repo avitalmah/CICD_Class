@@ -1,4 +1,4 @@
-var data = {
+const data = {
   products: [
     {
       title: 'Black Bag',
