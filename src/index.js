@@ -1,6 +1,7 @@
 //import express from 'express';
 const express = require('express');
-import data from './data.js';
+const data = require('./data.js');
+//import data from './data.js';
 
 const app = express();
 const port = process.env.PORT || 5000;
