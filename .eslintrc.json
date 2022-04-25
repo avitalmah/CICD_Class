@@ -23,9 +23,3 @@
     "rules": {
     }
 }
-{
-    
-    "parserOptions": {
-      "allowImportExportEverywhere": true
-    }
-  }
