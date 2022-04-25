@@ -1,7 +1,7 @@
 const Product = require("../src/dbModels/product");
 const User = require("../src/dbModels/user");
 
-// handle GET request at /api/product to get list of all products in stock
+// handle GET request at /api/product to get list of all products in stock.
 exports.ProductsPage = (req, res) => {
   let page = req.query.page || 1;
   let perPage = parseInt(req.query.perPage) || 8;

@@ -4,7 +4,7 @@ const product_controller = require("../../controllers/productController");
 const product_validation = require("../../middlewares/validation/validateProduct");
 const handle_images = require("../../middlewares/handleImageMulter");
 const { auth, sellerAuth } = require("../../middlewares/auth");
-
+//
 // @route   GET /api/product
 // @desc    Get all products
 // @access  public
