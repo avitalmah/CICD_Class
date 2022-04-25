@@ -6,7 +6,7 @@ const data = {
       type: 'Men',
       category: 'Backpack',
       color: 'Black',
-      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', // 679px × 829px
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
       price: 120,
       countInStock: 10,
       brand: 'Nike',
@@ -20,7 +20,7 @@ const data = {
       type: 'Men',
       category: 'Backpack',
       color: 'Black',
-      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', // 679px × 829px
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
       price: 220,
       countInStock: 10,
       brand: 'Nike',
@@ -34,7 +34,7 @@ const data = {
       type: 'Men',
       category: 'Backpack',
       color: 'Black',
-      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', // 679px × 829px
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
       price: 320,
       countInStock: 10,
       brand: 'Nike',
@@ -42,8 +42,6 @@ const data = {
       numReviews: 10,
       description: 'high quality shirt',
     },
-    
   ],
 };
- export default data;
-
+export default data;
