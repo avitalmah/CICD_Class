@@ -8,12 +8,9 @@
         "plugin:react/recommended",
         "google"
     ],
-    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true,
-            "sourceType": "module",
-            "allowImportExportEverywhere": true
+            "jsx": true
         },
         "ecmaVersion": "latest"
     },
