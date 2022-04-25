@@ -1,6 +1,6 @@
-// const expect = require('chai').expect;
-import chai from 'chai';
-var expect = chai.expect;
+const expect = require('chai').expect;
+// import chai from 'chai';
+// var expect = chai.expect;
 
 describe('Array', () => {
   describe('#sort', () => {
