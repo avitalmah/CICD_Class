@@ -1,14 +1,13 @@
 import { HashRouter, Link, Route, Switch } from 'react-router-dom';
 import HomePage from './page/homePage/HomePage';
 import ProductScreen from './page/productPage/ProductScreen';
+import Header from './page/navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
       <HashRouter>
-        <header>
-          <Link to="/">amazona</Link>
-        </header>
+        <Header></Header>
         <Switch>
           <Route path="/product/:slug" exact component={ProductScreen} />
           <Route path="/" exact component={HomePage} />
