@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <HashRouter>
         <Header></Header>
-        <Switch>
+        <Switch className="mt-3">
           <Route path="/product/:slug" exact component={ProductScreen} />
           <Route path="/" exact component={HomePage} />
         </Switch>

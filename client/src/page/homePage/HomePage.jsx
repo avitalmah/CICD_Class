@@ -2,9 +2,11 @@
 import { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Row, Col } from 'react-bootstrap';
 import Product from '../../components/Product';
+import LoadingSpinner from '../../components/LoadingSpinner';
+import MessageAlert from '../../components/MessageAlert';
+
 
 
 const reducer = (state, action) => {
@@ -45,9 +47,9 @@ function HomePage() {
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
+          <LoadingSpinner />
         ) : error ? (
-          <div>{error}</div>
+          <MessageAlert variant="danger">{error}</MessageAlert>
         ) : (
           <Row>
             {products.map((product) => (

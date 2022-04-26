@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Navbar, Nav, Container } from 'react-bootstrap'
+import { Navbar, Nav, Container, Badge } from 'react-bootstrap'
+import { Store } from '../../Store';
 
 const Header = () => {
   // here some logic
   //const history = useHistory();
-  const [userEmail, setUserEmail] = useState("");
-
+  const { state } = useContext(Store);
+  const { cart } = state;
   useEffect(() => {
   }, [])
 
@@ -28,7 +29,17 @@ const Header = () => {
               Login
             </Nav.Link>
           </Nav>
-          
+          <Nav className="me-auto">
+            <Link to="/cart" className="nav-link fa-solid fa-cart-shopping">
+              Cart
+              {cart.cartItems.length > 0 && (
+                <Badge pill bg="danger">
+                  {cart.cartItems.length}
+                </Badge>
+              )}
+            </Link>
+          </Nav>
+
         </Navbar.Collapse>
       </Container>
     </Navbar >
