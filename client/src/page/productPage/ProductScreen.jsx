@@ -59,7 +59,7 @@ function ProductScreen() {
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
-    history.push('/Cart');
+    history.render();
   };
 
   return loading ? (
