@@ -10,7 +10,7 @@ import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 export default function CartPage() {
-  const navigate = useHistory();
+  const history = useHistory();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -31,7 +31,7 @@ export default function CartPage() {
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=/shipping');
+    history.push('/signin?redirect=/shipping');
   };
 
   return (

@@ -3,6 +3,7 @@ import HomePage from './page/homePage/HomePage';
 import ProductScreen from './page/productPage/ProductScreen';
 import CartPage from './page/cartPage/CartPage';
 import Header from './page/navbar/Navbar';
+import SignIn from './page/signIn/SignIn';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/product/:slug" exact component={ProductScreen} />
           <Route path="/" exact component={HomePage} />
           <Route path="/cart" exact component={CartPage} />
+          <Route path="/signin" exact component={SignIn} />
         </Switch>
       </HashRouter>
     </div>
