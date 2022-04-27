@@ -1,11 +1,28 @@
 import express from 'express';
 import data from './data.js';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 // const express = require('express');
 // const data = require('./data.js');
 
 
+
 const app = express();
 const port = process.env.PORT || 5000;
+const Cat = mongoose.model('Cat', {name: String});
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('connected to db');
+    const kitty = new Cat({ name: 'dani' });
+    kitty.save().then(() => console.log('meow'));
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 // test
 app.get('/api/products', (req, res) => {
@@ -29,6 +46,8 @@ app.get('/api/products/:id', (req, res) => {
     res.status(404).send({ message: 'Product Not Found' });
   }
 });
+
+
 
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
