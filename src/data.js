@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       title: 'Black Bag',
       slug: 'Black-Bag',
       type: 'Men',
@@ -15,6 +16,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: '2',
       title: 'Black1 Bag',
       slug: 'Black1-Bag',
       type: 'Men',
@@ -29,6 +31,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: '3',
       title: 'Black2 Bag',
       slug: 'Black2-Bag',
       type: 'Men',
