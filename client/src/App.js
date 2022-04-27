@@ -1,6 +1,7 @@
 import { HashRouter, Link, Route, Switch } from 'react-router-dom';
 import HomePage from './page/homePage/HomePage';
 import ProductScreen from './page/productPage/ProductScreen';
+import CartPage from './page/cartPage/CartPage';
 import Header from './page/navbar/Navbar';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Switch className="mt-3">
           <Route path="/product/:slug" exact component={ProductScreen} />
           <Route path="/" exact component={HomePage} />
+          <Route path="/cart" exact component={CartPage} />
         </Switch>
       </HashRouter>
     </div>
