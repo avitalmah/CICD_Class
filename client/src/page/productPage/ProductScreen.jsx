@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useReducer, useContext } from 'react';
-import { useNavigate,useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Row, Col, ListGroup, Badge, Button, Card } from 'react-bootstrap';
 import Rating from '../../components/Rating';
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -23,7 +23,7 @@ const reducer = (state, action) => {
 
 
 function ProductScreen() {
-  const navigate = useNavigate();
+  let history = useHistory();
   const params = useParams();
   const { slug } = params;
 
@@ -51,7 +51,7 @@ function ProductScreen() {
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity: 1 },
     });
-    navigate('/cart');
+    history.push('/Cart');
   };
 
   return loading ? (

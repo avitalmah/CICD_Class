@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { Store } from '../../Store';
-import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MessageAlert from '../../components/MessageAlert';
@@ -17,16 +16,13 @@ export default function CartPage() {
 
   return (
     <div>
-      <Helmet>
-        <title>Shopping Cart</title>
-      </Helmet>
       <h1>Shopping Cart</h1>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
-            <MessageBox>
+            <MessageAlert>
               Cart is empty. <Link to="/">Go Shopping</Link>
-            </MessageBox>
+            </MessageAlert>
           ) : (
             <ListGroup>
               {cartItems.map((item) => (
@@ -38,7 +34,7 @@ export default function CartPage() {
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
                       ></img>{' '}
-                      <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                      <Link to={`/product/${item}`}>{item.name}</Link>
                     </Col>
                     <Col md={3}>
                       <Button variant="light" disabled={item.quantity === 1}>
