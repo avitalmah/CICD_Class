@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
 import userRouter from './routes/userRoutes.js'
+import path from 'path';
 dotenv.config();
 
 // const express = require('express');
@@ -35,6 +36,16 @@ app.use('/api/users', userRouter);
 app.use((err, req, res) => {
   res.status(500).send({ message: err.message });
 });
+
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+}
+
 
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
