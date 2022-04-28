@@ -7,6 +7,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import MessageAlert from '../../components/MessageAlert';
 import { getError } from '../../utils';
 import { Store } from '../../Store';
+import { toast } from 'react-toastify';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -26,6 +27,7 @@ function ProductScreen() {
   let history = useHistory();
   const params = useParams();
   const { slug } = params;
+  
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
@@ -46,21 +48,27 @@ function ProductScreen() {
   }, [slug]);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { cart } = state;
+  const { cart, userInfo } = state;
   const addToCartHandler = async () => {
-    const existItem = cart.cartItems.find((x) => x._id === product._id);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
-    if (data.countInStock < quantity) {
-      window.alert('Sorry. Product is out of stock');
-      return;
+    if (userInfo === null) { 
+      toast.error("Must login before add to cart");
+      history.push('/signin');
     }
-    ctxDispatch({
-      type: 'CART_ADD_ITEM',
-      payload: { ...product, quantity },
-    });
-    history.render();
-  };
+    else {
+      const existItem = cart.cartItems.find((x) => x._id === product._id);
+      const quantity = existItem ? existItem.quantity + 1 : 1;
+      const { data } = await axios.get(`/api/products/${product._id}`);
+      if (data.countInStock < quantity) {
+        window.alert('Sorry. Product is out of stock');
+        return;
+      }
+      ctxDispatch({
+        type: 'CART_ADD_ITEM',
+        payload: { ...product, quantity },
+      });
+      history.render();
+    };
+  }
 
   return loading ? (
     <LoadingSpinner />

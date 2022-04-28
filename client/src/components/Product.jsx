@@ -5,6 +5,9 @@ import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../Store';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 
 function Product(props) {
@@ -13,20 +16,29 @@ function Product(props) {
   const {
     cart: { cartItems },
   } = state;
+  const { userInfo, cart } = state;
+  const history = useHistory();
 
-  const addToCartHandler = async (item) => {
-    const existItem = cartItems.find((x) => x._id === product._id);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${item._id}`);
-    if (data.countInStock < quantity) {
-      window.alert('Sorry. Product is out of stock');
-      return;
+  const addToCartHandler = async () => {
+    if (userInfo === null) { 
+      toast.error("Must login before add to cart");
+      history.push('/signin');
     }
-    ctxDispatch({
-      type: 'CART_ADD_ITEM',
-      payload: { ...item, quantity },
-    });
-  };
+    else {
+      const existItem = cart.cartItems.find((x) => x._id === product._id);
+      const quantity = existItem ? existItem.quantity + 1 : 1;
+      const { data } = await axios.get(`/api/products/${product._id}`);
+      if (data.countInStock < quantity) {
+        window.alert('Sorry. Product is out of stock');
+        return;
+      }
+      ctxDispatch({
+        type: 'CART_ADD_ITEM',
+        payload: { ...product, quantity },
+      });
+      history.render();
+    };
+  }
 
   return (
     <Card>
