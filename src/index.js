@@ -32,7 +32,7 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(500).send({ message: err.message });
 });
 
