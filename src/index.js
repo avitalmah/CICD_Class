@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
-
+import userRouter from './routes/userRoutes.js'
 dotenv.config();
 
 // const express = require('express');
@@ -13,21 +13,28 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const Cat = mongoose.model('Cat', {name: String});
+const Cat = mongoose.model('Cat', { name: String });
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('connected to db');
-    const kitty = new Cat({name: 'dani'});
+    const kitty = new Cat({ name: 'dani' });
     kitty.save().then(() => console.log('meow'));
   })
   .catch((err) => {
     console.log(err.message);
   });
 
-// test
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
+app.use('/api/users', userRouter);
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
 
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);

@@ -4,10 +4,13 @@ import ProductScreen from './page/productPage/ProductScreen';
 import CartPage from './page/cartPage/CartPage';
 import Header from './page/navbar/Navbar';
 import SignIn from './page/signIn/SignIn';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer position="bottom-center" limit={1} />
       <HashRouter>
         <Header></Header>
         <Switch className="mt-3">

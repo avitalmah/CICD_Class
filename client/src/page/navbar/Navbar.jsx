@@ -1,15 +1,19 @@
 import { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Navbar, Nav, Container, Badge } from 'react-bootstrap'
+import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap'
 import { Store } from '../../Store';
+import { CartFill, BagHeartFill } from 'react-bootstrap-icons';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
-  // here some logic
-  //const history = useHistory();
-  const { state } = useContext(Store);
-  const { cart } = state;
-  useEffect(() => {
-  }, [])
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart, userInfo } = state;
+
+  const signoutHandler = () => {
+    ctxDispatch({ type: 'USER_SIGNOUT' });
+    localStorage.removeItem('userInfo');
+  };
 
 
   return (
@@ -28,16 +32,39 @@ const Header = () => {
             <Nav.Link href="#/signin" >
               Login
             </Nav.Link>
-          </Nav>
-          <Nav className="me-auto">
             <Link to="/cart" className="nav-link fa-solid fa-cart-shopping">
-              Cart
+              <CartFill />
               {cart.cartItems.length > 0 && (
                 <Badge pill bg="danger">
                   {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                 </Badge>
               )}
             </Link>
+            <Link to="/cart" className="nav-link fa-solid fa-cart-shopping">
+              <BagHeartFill />
+            </Link>
+            {userInfo ? (
+              <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                <Link to="/profile" className="nav-link">
+                  <NavDropdown.Item>User Profile</NavDropdown.Item>
+                </Link>
+                <Link to="/orderhistory" className="nav-link">
+                  <NavDropdown.Item>Order History</NavDropdown.Item>
+                </Link>
+                <NavDropdown.Divider />
+                <Link
+                  className="dropdown-item"
+                  to="/"
+                  onClick={signoutHandler}
+                >
+                  Sign Out
+                </Link>
+              </NavDropdown>
+            ) : (
+              <Link className="nav-link" to="/signin">
+                Sign In
+              </Link>
+            )}
           </Nav>
 
         </Navbar.Collapse>
