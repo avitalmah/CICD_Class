@@ -28,7 +28,7 @@ const Header = () => {
             navbarScroll
           >
             <Nav.Link href="#/About">About</Nav.Link>
-            <Nav.Link href="#Registration">Sign Up</Nav.Link>
+            <Nav.Link href="#/signup">Sign Up</Nav.Link>
             <Nav.Link href="#/signin" >
               Login
             </Nav.Link>
@@ -44,7 +44,7 @@ const Header = () => {
               <BagHeartFill />
             </Link>
             {userInfo ? (
-              <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+              <NavDropdown title={userInfo.firstName} id="basic-nav-dropdown">
                 <Link to="/profile" className="nav-link">
                   <NavDropdown.Item>User Profile</NavDropdown.Item>
                 </Link>

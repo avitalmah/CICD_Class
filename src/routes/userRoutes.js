@@ -14,8 +14,15 @@ userRouter.post(
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           _id: user._id,
-          name: user.name,
+          firstName: user.firstName,
+          lastName: user.lastName,
           email: user.email,
+          country: user.country,
+          city: user.city,
+          street: user.street,
+          streetNumber: user.streetNumber,
+          aptNumber: user.aptNumber,
+          zip: user.zip,
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });
@@ -23,6 +30,45 @@ userRouter.post(
       }
     }
     res.status(401).send({ message: 'Invalid email or password' });
+  })
+);
+
+userRouter.post(
+  '/signup',
+  expressAsyncHandler(async (req, res) => {
+    const checkUser = await User.findOne({ email: req.body.email });
+    if (checkUser) {
+      res.status(401).send({ message: 'Email is already use' });
+    }
+    else {
+      const newUser = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password),
+        country: req.body.country,
+        city: req.body.city,
+        street: req.body.street,
+        streetNumber: req.body.streetNumber,
+        aptNumber: req.body.aptNumber,
+        zip: req.body.zip,
+      });
+      const user = await newUser.save();
+      res.send({
+        _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        country: user.country,
+        city: user.city,
+        street: user.street,
+        streetNumber: user.streetNumber,
+        aptNumber: user.aptNumber,
+        zip: user.zip,
+        isAdmin: user.isAdmin,
+        token: generateToken(user),
+      });
+    }
   })
 );
 

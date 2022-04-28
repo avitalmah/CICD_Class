@@ -4,6 +4,7 @@ import ProductScreen from './page/productPage/ProductScreen';
 import CartPage from './page/cartPage/CartPage';
 import Header from './page/navbar/Navbar';
 import SignIn from './page/signIn/SignIn';
+import SignUp from './page/signUp/SignUp';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/cart" exact component={CartPage} />
           <Route path="/signin" exact component={SignIn} />
+          <Route path="/signup" exact component={SignUp} />
         </Switch>
       </HashRouter>
     </div>
