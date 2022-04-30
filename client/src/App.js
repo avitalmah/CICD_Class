@@ -6,6 +6,8 @@ import Header from './page/navbar/Navbar';
 import SignIn from './page/signIn/SignIn';
 import SignUp from './page/signUp/SignUp';
 import ShippingAddressPage from './page/shippingAddressPage/ShippingAddressPage';
+import PaymentPage from './page/paymentPage/PaymentPage';
+import ProfilePage from './page/profilePage.jsx/ProfilePage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,6 +24,8 @@ function App() {
           <Route path="/signin" exact component={SignIn} />
           <Route path="/signup" exact component={SignUp} />
           <Route path="/shipping" exact component={ShippingAddressPage} />
+          <Route path="/payment" exact component={PaymentPage} />
+          <Route path="/profile" exact component={ProfilePage} />
         </Switch>
       </HashRouter>
     </div>

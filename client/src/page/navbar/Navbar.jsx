@@ -45,12 +45,8 @@ const Header = () => {
             </Link>
             {userInfo ? (
               <NavDropdown title={userInfo.firstName} id="basic-nav-dropdown">
-                <Link to="/profile" className="nav-link">
-                  <NavDropdown.Item>User Profile</NavDropdown.Item>
-                </Link>
-                <Link to="/orderhistory" className="nav-link">
-                  <NavDropdown.Item>Order History</NavDropdown.Item>
-                </Link>
+                <NavDropdown.Item><Link to="/profile" className="nav-link">User Profile</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link to="/orderhistory" className="nav-link">Order History</Link></NavDropdown.Item>
                 <NavDropdown.Divider />
                 <Link
                   className="dropdown-item"
