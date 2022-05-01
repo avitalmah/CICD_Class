@@ -76,7 +76,6 @@ const ProfilePage = () => {
             });
             toast.error('Email is already in use.');
         }
-        window.alert(userInfo.country);
     };
 
     return (

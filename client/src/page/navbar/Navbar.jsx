@@ -27,6 +27,7 @@ const Header = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
+            <Nav.Link href="#/contactus">Contact Us</Nav.Link>
             <Nav.Link href="#/About">About</Nav.Link>
             <Nav.Link href="#/signup">Sign Up</Nav.Link>
             <Nav.Link href="#/signin" >
