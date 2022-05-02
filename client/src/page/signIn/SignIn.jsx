@@ -7,6 +7,7 @@ import { Store } from '../../Store';
 import { toast } from 'react-toastify';
 import { getError } from '../../utils';
 
+
 const SignIn = () => {
     const history = useHistory();
     const { search } = useLocation();
@@ -75,7 +76,7 @@ const SignIn = () => {
 
                                             <Button type="submit">Sign In</Button>
 
-                                            <p className="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#/Registration" className="fw-bold text-body"><u>Register</u></a></p>
+                                            <p className="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#/signup" className="fw-bold text-body"><u>Register</u></a></p>
                                             <p className="text-center text-muted mt-5 mb-0">Forgot your password? <a href="#!" className="fw-bold text-body"><u>Reset Password</u></a></p>
                                         </Form>
 
