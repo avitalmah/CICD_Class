@@ -8,6 +8,10 @@ import SignUp from './page/signUp/SignUp';
 import ShippingAddressPage from './page/shippingAddressPage/ShippingAddressPage';
 import PaymentPage from './page/paymentPage/PaymentPage';
 import ProfilePage from './page/profilePage.jsx/ProfilePage';
+import Dashboard from './managerPage/dashboard/Dashboard';
+import ResetPassword from './page/resetPassword/ResetPassword';
+import VerifyPinCodePassword from './page/verifyPinCodePassword/VerifyPinCodePassword';
+import ChangePassword from './page/changePassword/ChangePassword';
 import ContactUsPage from './page/contactUs/ContactUsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,7 +31,11 @@ function App() {
           <Route path="/shipping" exact component={ShippingAddressPage} />
           <Route path="/payment" exact component={PaymentPage} />
           <Route path="/profile" exact component={ProfilePage} />
+          <Route path="/resetpassword" exact component={ResetPassword} />
+          <Route path="/resetpasswordpin" exact component={VerifyPinCodePassword} />
+          <Route path="/changepassword" exact component={ChangePassword} />
           <Route path="/contactus" exact component={ContactUsPage} />
+          <Route path="/admin/dashboard" exact component={Dashboard} />
         </Switch>
       </HashRouter>
     </div>

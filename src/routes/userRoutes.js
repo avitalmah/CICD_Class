@@ -107,4 +107,18 @@ userRouter.put(
   })
 );
 
+userRouter.put(
+  '/password',
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.updateOne({ email: req.body.email }, { password: bcrypt.hashSync(req.body.password) });
+    if (user) {
+      res.send({
+        message: 'Update password Successfull',
+      });
+    } else {
+      res.status(404).send({ message: 'User not found' });
+    }
+  })
+);
+
 export default userRouter;

@@ -77,7 +77,7 @@ const SignIn = () => {
                                             <Button type="submit">Sign In</Button>
 
                                             <p className="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#/signup" className="fw-bold text-body"><u>Register</u></a></p>
-                                            <p className="text-center text-muted mt-5 mb-0">Forgot your password? <a href="#!" className="fw-bold text-body"><u>Reset Password</u></a></p>
+                                            <p className="text-center text-muted mt-5 mb-0">Forgot your password? <a href="#/resetpassword" className="fw-bold text-body"><u>Reset Password</u></a></p>
                                         </Form>
 
                                     </div>

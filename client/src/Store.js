@@ -7,6 +7,10 @@ const initialState = {
         ? JSON.parse(localStorage.getItem('userInfo'))
         : null,
 
+    verificationCode: localStorage.getItem('verificationCode')
+        ? JSON.parse(localStorage.getItem('verificationCode'))
+        : null,
+
     cart: {
         shippingAddress: localStorage.getItem('shippingAddress')
             ? JSON.parse(localStorage.getItem('shippingAddress'))
@@ -43,6 +47,7 @@ function reducer(state, action) {
 
         case 'USER_SIGNIN':
             return { ...state, userInfo: action.payload };
+
         case 'USER_SIGNOUT':
             return {
                 ...state,
