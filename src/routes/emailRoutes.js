@@ -57,7 +57,6 @@ emailRouter.post('/resetpassword', (req, res) => {
         res.status(500).send({ message: 'Error in sending verification code' });
       } else {
         console.log(body);
-        console.log(info.messageId);
         res.send({
           pin: pin,
           email: email,
