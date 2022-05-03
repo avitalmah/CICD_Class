@@ -1,6 +1,5 @@
 
 import express from 'express';
-import { mailgun } from '../utils.js';
 import nodemailer from 'nodemailer';
 const emailRouter = express.Router();
 
@@ -13,7 +12,7 @@ emailRouter.post('/', (req, res) => {
       pass: 'project2022'
     }
   });
-  let info = transporter.sendMail({
+  transporter.sendMail({
     from: `${email}`,
     to: 'theperfectgroup8@gmail.com',
     subject: `${topic}`,
@@ -45,7 +44,7 @@ emailRouter.post('/resetpassword', (req, res) => {
       pass: 'project2022'
     }
   });
-  let info = transporter.sendMail({
+  transporter.sendMail({
     from: 'theperfectgroup8@gmail.com',
     to: `${email}`,
     subject: 'Verification Code',
@@ -58,6 +57,7 @@ emailRouter.post('/resetpassword', (req, res) => {
         res.status(500).send({ message: 'Error in sending verification code' });
       } else {
         console.log(body);
+        console.log(info.messageId);
         res.send({
           pin: pin,
           email: email,
