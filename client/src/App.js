@@ -13,6 +13,7 @@ import ResetPassword from './page/resetPassword/ResetPassword';
 import VerifyPinCodePassword from './page/verifyPinCodePassword/VerifyPinCodePassword';
 import ChangePassword from './page/changePassword/ChangePassword';
 import PushMessage from './managerPage/pushMessage/PushMessage';
+import AddDelivery from './managerPage/addDelivery/AddDelivery';
 import ContactUsPage from './page/contactUs/ContactUsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/contactus" exact component={ContactUsPage} />
           <Route path="/admin/dashboard" exact component={Dashboard} />
           <Route path="/admin/pushmessage" exact component={PushMessage} />
+          <Route path="/admin/adddeliveryoption" exact component={AddDelivery} />
         </Switch>
       </HashRouter>
     </div>
