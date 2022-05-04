@@ -1,6 +1,8 @@
 
 import express from 'express';
 import nodemailer from 'nodemailer';
+import User from '../dbModels/user.js';
+import expressAsyncHandler from 'express-async-handler';
 const emailRouter = express.Router();
 
 emailRouter.post('/', (req, res) => {
@@ -65,6 +67,53 @@ emailRouter.post('/resetpassword', (req, res) => {
       }
     });
 });
+
+emailRouter.post('/push',
+  expressAsyncHandler(async (req, res) => {
+    const { topic, message } = req.body;
+    const usersEmail = await User.find({}, 'email');
+    const temp = [];
+    for (let useremail in usersEmail) {
+      console.log(usersEmail[useremail].email);
+      temp.push(usersEmail[useremail].email);
+    }
+    const tempSpace = temp.join(', ');
+
+    console.log(tempSpace);
+
+    if (usersEmail) {
+      //console.log(usersEmail);
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'theperfectgroup8@gmail.com',
+          pass: 'project2022'
+        }
+      });
+      transporter.sendMail({
+        from: 'theperfectgroup8@gmail.com',
+        to: `${tempSpace}`,
+        subject: `${topic}`,
+        html: `<h3>${topic}</h3>
+        <p>${message}</p>`, // html body
+      },
+        (error, body) => {
+          if (error) {
+            console.log(error);
+            res.status(500).send({ message: 'Error in sending email to all users' });
+          } else {
+            console.log(body);
+            res.send({
+              message: 'Email sent to all users'
+            });
+          }
+        });
+    }
+    else {
+      res.status(500).send({ message: 'Error in find users email' });
+    }
+  })
+);
 
 export default emailRouter;
 // emailRouter.post('/', (req, res) => {
