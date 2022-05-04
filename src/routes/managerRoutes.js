@@ -3,10 +3,29 @@ import expressAsyncHandler from 'express-async-handler';
 import Delivery from '../dbModels/delivery.js';
 const managerRouter = express.Router();
 
+managerRouter.get('/deliveries', async (req, res) => {
+    const Deliveries = await Delivery.find();
+    console.log(Deliveries);
+    res.send(Deliveries);
+});
+
+managerRouter.delete('/delivery/:deliveryName',
+    expressAsyncHandler(async (req, res) => {
+        console.log(req.params.deliveryName);
+      const deliveryDeleted = await Delivery.findOne({deliveryName: req.params.deliveryName});
+      if (deliveryDeleted) {
+        await deliveryDeleted.remove();
+        res.send({ message: 'Delivery Deleted' });
+      } else {
+        res.status(404).send({ message: 'Delivery Not Found' });
+      }
+    })
+  );
+
 managerRouter.post(
     '/adddelivery',
     expressAsyncHandler(async (req, res) => {
-        const checkDelivery = await Delivery.findOne({ email: req.body.email });
+        const checkDelivery = await Delivery.findOne({ deliveryName: req.body.deliveryName });
         if (checkDelivery) {
             res.status(401).send({ message: 'Delivery name is already use, please select another name' });
         }

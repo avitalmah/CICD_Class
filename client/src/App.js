@@ -14,6 +14,7 @@ import VerifyPinCodePassword from './page/verifyPinCodePassword/VerifyPinCodePas
 import ChangePassword from './page/changePassword/ChangePassword';
 import PushMessage from './managerPage/pushMessage/PushMessage';
 import AddDelivery from './managerPage/addDelivery/AddDelivery';
+import DeliveryOptions from './managerPage/deliveryOptions/DeliveryOptions';
 import ContactUsPage from './page/contactUs/ContactUsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +41,7 @@ function App() {
           <Route path="/admin/dashboard" exact component={Dashboard} />
           <Route path="/admin/pushmessage" exact component={PushMessage} />
           <Route path="/admin/adddeliveryoption" exact component={AddDelivery} />
+          <Route path="/admin/delivery" exact component={DeliveryOptions} />
         </Switch>
       </HashRouter>
     </div>

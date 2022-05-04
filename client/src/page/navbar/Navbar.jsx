@@ -49,7 +49,7 @@ const Header = () => {
                 <NavDropdown.Item><Link to="/admin/dashboard" className="nav-link">Dashboard</Link></NavDropdown.Item>
                 <NavDropdown.Item><Link to="/admin/pushmessage" className="nav-link">Push Message</Link></NavDropdown.Item>
                 <NavDropdown.Item><Link to="/admin/adddeliveryoption" className="nav-link">Add Delivery Option</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/admin/dashboard" className="nav-link">User Profile</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link to="/admin/delivery" className="nav-link">Deliveries Options</Link></NavDropdown.Item>
               </NavDropdown>
             </Nav>
 
