@@ -43,6 +43,7 @@ function App() {
           <Route path="/admin/pushmessage" exact component={PushMessage} />
           <Route path="/admin/adddeliveryoption" exact component={AddDelivery} />
           <Route path="/admin/delivery" exact component={DeliveryOptions} />
+          <Route path="/search" exact component={SearchPage} />
         </Switch>
       </HashRouter>
     </div>
