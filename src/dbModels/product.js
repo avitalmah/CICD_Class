@@ -45,11 +45,14 @@ import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true, unique: true },
-    slug: { type: String, required: true, unique: true },
+    title: { type: String, required: true, unique: true }, // = modle
+    slug: { type: String, required: true, unique: true }, // = id
     image: { type: String, required: true },
-    brand: { type: String, required: true },
-    category: { type: String, required: true },
+    brand: { type: String, required: true }, // colction 
+    category: { type: String, required: true }, // backpack 
+    color: { type: String, required: true },
+    size: { type: String, required: true }, // S,M,L
+    type: { type: String, required: true }, // man , woman , suitcase
     description: { type: String, required: true },
     price: { type: Number, required: true },
     countInStock: { type: Number, required: true },
