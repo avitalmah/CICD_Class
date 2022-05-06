@@ -6,11 +6,11 @@ import FormControl from 'react-bootstrap/FormControl';
 import { useHistory } from 'react-router-dom';
 
 export default function SearchBox() {
-  const navigate = useHistory();
+  const history = useHistory();
   const [query, setQuery] = useState('');
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate(query ? `/search/?query=${query}` : '/search');
+    history.push(query ? `/search/?query=${query}` : '/search');
   };
 
   return (

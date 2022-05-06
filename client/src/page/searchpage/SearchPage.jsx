@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { getError } from '../../utils';
@@ -10,8 +10,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import MessageAlert from '../../components/MessageAlert';
 import Button from 'react-bootstrap/Button';
 import Product from '../../components/Product';
-//import LinkContainer from 'react-router-bootstrap/LinkContainer';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -73,7 +72,7 @@ export const ratings = [
 
 export default function SearchPage() {
   const navigate = useHistory();
-  const { search } = useHistory();
+  const { search } = useLocation();
   const sp = new URLSearchParams(search); // /search?category=Shirts
   const category = sp.get('category') || 'all';
   const query = sp.get('query') || 'all';
@@ -105,18 +104,18 @@ export default function SearchPage() {
     fetchData();
   }, [category, error, order, page, price, query, rating]);
 
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data } = await axios.get(`/api/products/categories`);
-        setCategories(data);
-      } catch (err) {
-        toast.error(getError(err));
-      }
-    };
-    fetchCategories();
-  }, [dispatch]);
+//   const [categories, setCategories] = useState([]);
+//   useEffect(() => {
+//     const fetchCategories = async () => {
+//       try {
+//         const { data } = await axios.get(`/api/products/categories`);
+//         setCategories(data);
+//       } catch (err) {
+//         toast.error(getError(err));
+//       }
+//     };
+//     fetchCategories();
+//   }, [dispatch]);
 
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || page;
@@ -132,7 +131,7 @@ export default function SearchPage() {
       <Row>
         <Col md={3}>
           <h3>Department</h3>
-          <div>
+          {/* <div>
             <ul>
               <li>
                 <Link
@@ -142,7 +141,7 @@ export default function SearchPage() {
                   Any
                 </Link>
               </li>
-              {categories.map((c) => (
+              {category.map((c) => (
                 <li key={c}>
                   <Link
                     className={c === category ? 'text-bold' : ''}
@@ -153,7 +152,7 @@ export default function SearchPage() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
           <div>
             <h3>Price</h3>
             <ul>
@@ -222,7 +221,7 @@ export default function SearchPage() {
                     price !== 'all' ? (
                       <Button
                         variant="light"
-                        onClick={() => navigate('/search')}
+                        onClick={() => navigate.push('/search')}
                       >
                         <i className="fas fa-times-circle"></i>
                       </Button>
@@ -234,7 +233,7 @@ export default function SearchPage() {
                   <select
                     value={order}
                     onChange={(e) => {
-                      navigate(getFilterUrl({ order: e.target.value }));
+                      navigate.push(getFilterUrl({ order: e.target.value }));
                     }}
                   >
                     <option value="newest">Newest Arrivals</option>
