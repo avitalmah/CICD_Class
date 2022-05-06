@@ -129,7 +129,7 @@ export default function SearchPage() {
   return (
     <div>
       <Row>
-        <Col md={3}>
+        <Col md={2}>
           <h3>Department</h3>
           {/* <div>
             <ul>
@@ -249,7 +249,7 @@ export default function SearchPage() {
 
               <Row>
                 {products.map((product) => (
-                  <Col sm={6} lg={4} className="mb-3" key={product._id}>
+                  <Col sm={6} lg={3} className="mb-3 mr-5" key={product._id}>
                     <Product product={product}></Product>
                   </Col>
                 ))}
