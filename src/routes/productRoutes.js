@@ -10,12 +10,11 @@ productRouter.get('/', async (req, res) => {
     const products = await Product.find();
     res.send(products);
 });
-const PAGE_SIZE = 3;
 productRouter.get(
   '/search',
   expressAsyncHandler(async (req, res) => {
     const { query } = req;
-    const pageSize = query.pageSize || PAGE_SIZE;
+    const pageSize = query.pageSize ;
     const page = query.page || 1;
     const category = query.category || '';
     const price = query.price || '';
@@ -26,7 +25,7 @@ productRouter.get(
     const queryFilter =
       searchQuery && searchQuery !== 'all'
         ? {
-            name: {
+            title: {
               $regex: searchQuery,
               $options: 'i',
             },
