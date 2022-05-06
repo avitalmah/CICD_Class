@@ -18,6 +18,7 @@ import DeliveryOptions from './managerPage/deliveryOptions/DeliveryOptions';
 import ContactUsPage from './page/contactUs/ContactUsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SearchPage from './page/searchpage/SearchPage';
 
 function App() {
   return (

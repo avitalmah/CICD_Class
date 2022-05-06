@@ -5,6 +5,7 @@ import { Store } from '../../Store';
 import { CartFill, BagHeartFill } from 'react-bootstrap-icons';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SearchBox from '../../components/SearchBox';
 
 const Header = () => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -21,6 +22,7 @@ const Header = () => {
           <Navbar.Brand href="#/">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
+            <SearchBox />
             <Nav
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
@@ -65,6 +67,7 @@ const Header = () => {
           <Navbar.Brand href="#/">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
+            <SearchBox />
             <Nav
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
@@ -101,7 +104,8 @@ const Header = () => {
           <Navbar.Brand href="#/">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav
+            <SearchBox />
+            <Nav  
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll
