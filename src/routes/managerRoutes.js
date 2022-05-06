@@ -94,8 +94,8 @@ managerRouter.put(
       checkProduct.description = req.body.description || checkProduct.description;
       checkProduct.price = req.body.price || checkProduct.price;
       checkProduct.countInStock = req.body.countInStock || checkProduct.countInStock;
-      checkProduct.rating = checkProduct.rating;
-      checkProduct.numReviews = checkProduct.numReviews;
+      // checkProduct.rating = checkProduct.rating;
+      // checkProduct.numReviews = checkProduct.numReviews;
 
       await checkProduct.save();
       res.send({
