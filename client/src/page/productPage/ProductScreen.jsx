@@ -27,7 +27,7 @@ function ProductScreen() {
   let history = useHistory();
   const params = useParams();
   const { slug } = params;
-  
+
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
@@ -50,7 +50,7 @@ function ProductScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
   const addToCartHandler = async () => {
-    if (userInfo === null) { 
+    if (userInfo === null) {
       toast.error("Must login before add to cart");
       history.push('/signin');
     }
@@ -75,71 +75,110 @@ function ProductScreen() {
   ) : error ? (
     <MessageAlert variant="danger">{error}</MessageAlert>
   ) : (
-    <div>
-      <Row>
-        <Col md={6}>
-          <img
-            className="img-large"
-            src={product.image}
-            alt={product.name}
-          ></img>
-        </Col>
-        <Col md={3}>
-          <ListGroup variant="flush">
-            <ListGroup.Item>
-              <h1>{product.name}</h1>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <Rating
-                rating={product.rating}
-                numReviews={product.numReviews}
-              ></Rating>
-            </ListGroup.Item>
-            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
-            <ListGroup.Item>
-              Description:
-              <p>{product.description}</p>
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col md={3}>
-          <Card>
-            <Card.Body>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Price:</Col>
-                    <Col>${product.price}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Status:</Col>
-                    <Col>
-                      {product.countInStock > 0 ? (
-                        <Badge bg="success">In Stock</Badge>
-                      ) : (
-                        <Badge bg="danger">Unavailable</Badge>
-                      )}
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
+    // <div>
+    //   <Row>
+    //     <Col md={6}>
+    //       <img
+    //         className="img-large"
+    //         src={product.image}
+    //         alt={product.name}
+    //       ></img>
+    //     </Col>
+    //     <Col md={3}>
+    //       <ListGroup variant="flush">
+    //         <ListGroup.Item>
+    //           <h1>{product.name}</h1>
+    //         </ListGroup.Item>
+    //         <ListGroup.Item>
+    //           <Rating
+    //             rating={product.rating}
+    //             numReviews={product.numReviews}
+    //           ></Rating>
+    //         </ListGroup.Item>
+    //         <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
+    //         <ListGroup.Item>
+    //           Description:
+    //           <p>{product.description}</p>
+    //         </ListGroup.Item>
+    //       </ListGroup>
+    //     </Col>
+    //     <Col md={3}>
+    //       <Card>
+    //         <Card.Body>
+    //           <ListGroup variant="flush">
+    //             <ListGroup.Item>
+    //               <Row>
+    //                 <Col>Price:</Col>
+    //                 <Col>${product.price}</Col>
+    //               </Row>
+    //             </ListGroup.Item>
+    //             <ListGroup.Item>
+    //               <Row>
+    //                 <Col>Status:</Col>
+    //                 <Col>
+    //                   {product.countInStock > 0 ? (
+    //                     <Badge bg="success">In Stock</Badge>
+    //                   ) : (
+    //                     <Badge bg="danger">Unavailable</Badge>
+    //                   )}
+    //                 </Col>
+    //               </Row>
+    //             </ListGroup.Item>
 
-                {product.countInStock > 0 && (
-                  <ListGroup.Item>
-                    <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="primary">
-                        Add to Cart
+    //             {product.countInStock > 0 && (
+    //               <ListGroup.Item>
+    //                 <div className="d-grid">
+    //                   <Button onClick={addToCartHandler} variant="primary">
+    //                     Add to Cart
+    //                   </Button>
+    //                 </div>
+    //               </ListGroup.Item>
+    //             )}
+    //           </ListGroup>
+    //         </Card.Body>
+    //       </Card>
+    //     </Col>
+    //   </Row>
+    // </div>
+    <div >
+      <div className=" bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+        <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+          <div className="container h-100">
+            <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div className="card m-3" itemID="check">
+                  <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
+                    <h2 className="text-uppercase text-center mb-5">{product.title}</h2>
+                    <img src={product.image} className="card-img-top" alt={product.title} />
+                    <Card.Title>{product.title}</Card.Title>
+                    <Rating rating={product.rating} numReviews={product.numReviews} />
+                    <Card.Text><strong>Brand: </strong>{product.brand}</Card.Text>
+                    <Card.Text><strong>Type: </strong>{product.type}</Card.Text>
+                    <Card.Text><strong>Category: </strong>{product.category}</Card.Text>
+                    <Card.Text><strong>Color: </strong>{product.color}</Card.Text>
+                    <Card.Text><strong>Size: </strong>{product.size}</Card.Text>
+                    <Card.Text><strong>Color: </strong>{product.color}</Card.Text>
+                    <Card.Text><strong>Description: </strong>{product.description}</Card.Text>
+                    <Card.Text><strong>Price: </strong>${product.price}</Card.Text>
+                    {product.countInStock === 0 ? (
+                      <Button variant="light" disabled>
+                        Out of stock
                       </Button>
-                    </div>
-                  </ListGroup.Item>
-                )}
-              </ListGroup>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+                    ) : (
+                      <Button onClick={() => addToCartHandler()}>Add to cart</Button>
+                    )}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div >
+    </div >
+
   );
 }
 export default ProductScreen;
+
+
