@@ -15,6 +15,7 @@ import ChangePassword from './page/changePassword/ChangePassword';
 import ContactUsPage from './page/contactUs/ContactUsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SearchPage from './page/searchpage/SearchPage';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/changepassword" exact component={ChangePassword} />
           <Route path="/contactus" exact component={ContactUsPage} />
           <Route path="/admin/dashboard" exact component={Dashboard} />
+          <Route path="/search" exact component={SearchPage} />
         </Switch>
       </HashRouter>
     </div>
