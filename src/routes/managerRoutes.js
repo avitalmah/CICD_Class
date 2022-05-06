@@ -22,6 +22,18 @@ managerRouter.delete('/delivery/:deliveryName',
     }
   })
 );
+managerRouter.delete('/product/:productTitle',
+  expressAsyncHandler(async (req, res) => {
+    console.log(req.params.productTitle);
+    const productDeleted = await Product.findOne({ title: req.params.productTitle });
+    if (productDeleted) {
+      await productDeleted.remove();
+      res.send({ message: 'Product Deleted' });
+    } else {
+      res.status(404).send({ message: 'Product Not Found' });
+    }
+  })
+);
 
 managerRouter.post(
   '/adddelivery',
@@ -82,7 +94,7 @@ managerRouter.put(
     if (notavailableProduct && notavailableProduct !== checkProduct) {
       res.status(401).send({ message: 'Product name is already use, please select another name' });
     }
-    if (checkProduct) {
+    else if (checkProduct) {
       checkProduct.title = req.body.title || checkProduct.title;
       checkProduct.slug = req.body.title.replaceAll(' ', '-') || checkProduct.slug;
       checkProduct.image = req.body.image || checkProduct.image;

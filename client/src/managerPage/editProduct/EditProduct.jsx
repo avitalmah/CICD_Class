@@ -4,6 +4,7 @@ import { getError } from '../../utils';
 import { useHistory, useParams } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import { Trash } from 'react-bootstrap-icons';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -46,7 +47,7 @@ const EditProduct = () => {
                 setDescription(result.data.description);
                 setPrice(result.data.price);
                 setCountInStock(result.data.countInStock);
-                
+
             } catch (err) {
                 dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
             }
@@ -95,6 +96,21 @@ const EditProduct = () => {
             );
         }
         history.push('/');
+    };
+    const deleteHandler = async (product) => {
+        const productTitle = product.title;
+        window.alert(productTitle);
+        if (window.confirm('Are you sure to delete?')) {
+            try {
+                await axios.delete(`/api/manager/product/${productTitle}`, {
+                    productTitle,
+                });
+                toast.success('Product deleted successfully');
+                history.push('/');
+            } catch (error) {
+                toast.error(getError(error));
+            }
+        }
     };
 
     return (
@@ -234,6 +250,10 @@ const EditProduct = () => {
 
                                             <div className="mb-3 d-flex justify-content-center">
                                                 <Button type="submit">Update Product</Button>
+                                            </div>
+
+                                            <div className="mb-3 d-flex justify-content-center">
+                                                <Button variant="secondary" onClick={() => deleteHandler(product)}><Trash></Trash></Button>
                                             </div>
 
                                         </Form>
