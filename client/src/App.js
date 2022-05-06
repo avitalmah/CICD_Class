@@ -37,7 +37,6 @@ function App() {
           <Route path="/changepassword" exact component={ChangePassword} />
           <Route path="/contactus" exact component={ContactUsPage} />
           <Route path="/admin/dashboard" exact component={Dashboard} />
-          <Route path="/search" exact component={SearchPage} />
         </Switch>
       </HashRouter>
     </div>
