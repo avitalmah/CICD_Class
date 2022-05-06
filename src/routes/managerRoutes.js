@@ -54,7 +54,7 @@ managerRouter.post(
     else {
       const newProduct = new Product({
         title: req.body.title,
-        slug: req.body.title.replaceAll(' ','-'),
+        slug: req.body.title.replaceAll(' ', '-'),
         image: req.body.image,
         brand: req.body.brand,
         category: req.body.category,
@@ -71,6 +71,38 @@ managerRouter.post(
       res.send({
         message: 'Product add successfully'
       });
+    }
+  })
+);
+managerRouter.put(
+  '/editproduct',
+  expressAsyncHandler(async (req, res) => {
+    const checkProduct = await Product.findOne({ slug: req.body.slug });
+    const notavailableProduct = await Product.findOne({ title: req.body.title });
+    if (notavailableProduct && notavailableProduct !== checkProduct) {
+      res.status(401).send({ message: 'Product name is already use, please select another name' });
+    }
+    if (checkProduct) {
+      checkProduct.title = req.body.title || checkProduct.title;
+      checkProduct.slug = req.body.title.replaceAll(' ', '-') || checkProduct.slug;
+      checkProduct.image = req.body.image || checkProduct.image;
+      checkProduct.brand = req.body.brand || checkProduct.brand;
+      checkProduct.category = req.body.category || checkProduct.category;
+      checkProduct.color =  req.body.color || checkProduct.color;
+      checkProduct.size = req.body.size || checkProduct.size;
+      checkProduct.type = req.body.type || checkProduct.type;
+      checkProduct.description = req.body.description || checkProduct.description;
+      checkProduct.price = req.body.price || checkProduct.price;
+      checkProduct.countInStock = req.body.countInStock || checkProduct.countInStock;
+      checkProduct.rating = checkProduct.rating;
+      checkProduct.numReviews = checkProduct.numReviews;
+
+      await checkProduct.save();
+      res.send({
+         message: 'Product Update' ,
+      });
+    } else {
+      res.status(404).send({ message: 'Product not found' });
     }
   })
 );

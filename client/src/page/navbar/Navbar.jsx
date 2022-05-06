@@ -53,6 +53,7 @@ const Header = () => {
                 <NavDropdown.Item><Link to="/admin/adddeliveryoption" className="nav-link">Add Delivery Option</Link></NavDropdown.Item>
                 <NavDropdown.Item><Link to="/admin/delivery" className="nav-link">Deliveries Options</Link></NavDropdown.Item>
                 <NavDropdown.Item><Link to="/admin/addproduct" className="nav-link">Add Product</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link to="/admin/editcatalog" className="nav-link">Edit Catalog</Link></NavDropdown.Item>
               </NavDropdown>
             </Nav>
 

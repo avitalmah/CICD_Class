@@ -16,6 +16,8 @@ import PushMessage from './managerPage/pushMessage/PushMessage';
 import AddDelivery from './managerPage/addDelivery/AddDelivery';
 import DeliveryOptions from './managerPage/deliveryOptions/DeliveryOptions';
 import AddProduct from './managerPage/addProduct/AddProduct';
+import EditCatalog from './managerPage/editCatalog/EditCatalog';
+import EditProduct from './managerPage/editProduct/EditProduct';
 import ContactUsPage from './page/contactUs/ContactUsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -46,6 +48,8 @@ function App() {
           <Route path="/admin/delivery" exact component={DeliveryOptions} />
           <Route path="/search" exact component={SearchPage} />
           <Route path="/admin/addproduct" exact component={AddProduct} />
+          <Route path="/admin/editcatalog" exact component={EditCatalog} />
+          <Route path="/admin/product/edit/:slug" exact component={EditProduct} />
         </Switch>
       </HashRouter>
     </div>
