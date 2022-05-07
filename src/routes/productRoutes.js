@@ -16,8 +16,10 @@ productRouter.get(
     const { query } = req;
     const pageSize = query.pageSize;
     const page = query.page || 1;
+    const type = query.type || '';
     const category = query.category || '';
     const price = query.price || '';
+    const color = query.color || '';
     const rating = query.rating || '';
     const order = query.order || '';
     const searchQuery = query.query || '';
@@ -31,7 +33,9 @@ productRouter.get(
           },
         }
         : {};
+    const typeFilter = type && type !== 'all' ? { type } : {};
     const categoryFilter = category && category !== 'all' ? { category } : {};
+    const colorFilter = color && color !== 'all' ? { color } : {};
     const ratingFilter =
       rating && rating !== 'all'
         ? {
@@ -65,8 +69,10 @@ productRouter.get(
 
     const products = await Product.find({
       ...queryFilter,
+      ...typeFilter,
       ...categoryFilter,
       ...priceFilter,
+      ...colorFilter,
       ...ratingFilter,
     })
       .sort(sortOrder)
@@ -75,8 +81,10 @@ productRouter.get(
 
     const countProducts = await Product.countDocuments({
       ...queryFilter,
+      ...typeFilter,
       ...categoryFilter,
       ...priceFilter,
+      ...colorFilter,
       ...ratingFilter,
     });
     res.send({
@@ -88,6 +96,29 @@ productRouter.get(
   })
 );
 
+productRouter.get(
+  '/categories',
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Product.find().distinct('category');
+    res.send(categories);
+  })
+);
+
+productRouter.get(
+  '/colors',
+  expressAsyncHandler(async (req, res) => {
+    const colors = await Product.find().distinct('color');
+    res.send(colors);
+  })
+);
+
+productRouter.get(
+  '/types',
+  expressAsyncHandler(async (req, res) => {
+    const types = await Product.find().distinct('type');
+    res.send(types);
+  })
+);
 
 productRouter.get('/slug/:slug', async (req, res) => {
   const product = await Product.findOne({ slug: req.params.slug });
@@ -98,6 +129,7 @@ productRouter.get('/slug/:slug', async (req, res) => {
     res.status(404).send({ message: 'Product Not Found' });
   }
 });
+
 productRouter.get('/:id', async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {

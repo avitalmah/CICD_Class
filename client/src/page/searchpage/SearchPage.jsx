@@ -78,6 +78,8 @@ export default function SearchPage() {
   const query = sp.get('query') || 'all';
   const price = sp.get('price') || 'all';
   const rating = sp.get('rating') || 'all';
+  const color = sp.get('color') || 'all';
+  const type = sp.get('type') || 'all';
   const order = sp.get('order') || 'newest';
   const page = sp.get('page') || 1;
 
@@ -91,7 +93,7 @@ export default function SearchPage() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+          `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&color=${color}&type=${type}&rating=${rating}&order=${order}`
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
@@ -102,36 +104,88 @@ export default function SearchPage() {
       }
     };
     fetchData();
-  }, [category, error, order, page, price, query, rating]);
+  }, [category, error, order, page, price, color, type, query, rating]);
 
-//   const [categories, setCategories] = useState([]);
-//   useEffect(() => {
-//     const fetchCategories = async () => {
-//       try {
-//         const { data } = await axios.get(`/api/products/categories`);
-//         setCategories(data);
-//       } catch (err) {
-//         toast.error(getError(err));
-//       }
-//     };
-//     fetchCategories();
-//   }, [dispatch]);
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axios.get(`/api/products/categories`);
+        setCategories(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchCategories();
+  }, [dispatch]);
+
+  const [colors, setColors] = useState([]);
+  useEffect(() => {
+    const fetchColors = async () => {
+      try {
+        const { data } = await axios.get(`/api/products/colors`);
+        setColors(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchColors();
+  }, [dispatch]);
+
+  const [types, setTypes] = useState([]);
+  useEffect(() => {
+    const fetchTypes = async () => {
+      try {
+        const { data } = await axios.get(`/api/products/types`);
+        setTypes(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchTypes();
+  }, [dispatch]);
 
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || page;
     const filterCategory = filter.category || category;
     const filterQuery = filter.query || query;
     const filterRating = filter.rating || rating;
+    const filterColor = filter.color || color;
+    const filterTypes = filter.type || type;
     const filterPrice = filter.price || price;
     const sortOrder = filter.order || order;
-    return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&color=${filterColor}&type=${filterTypes}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
     <div>
       <Row>
         <Col md={2}>
-          <h3>Department</h3>
-          {/* <div>
+          <h3>Types</h3>
+          <div>
+            <ul>
+              <li>
+                <Link
+                  className={'all' === type ? 'text-bold' : ''}
+                  to={getFilterUrl({ type: 'all' })}
+                >
+                  Any
+                </Link>
+              </li>
+              {types.map((t) => (
+                <li key={t}>
+                  <Link
+                    className={t === type ? 'text-bold' : ''}
+                    to={getFilterUrl({ type: t })}
+                  >
+                    {t}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <h3>Categories</h3>
+          <div>
             <ul>
               <li>
                 <Link
@@ -141,7 +195,7 @@ export default function SearchPage() {
                   Any
                 </Link>
               </li>
-              {category.map((c) => (
+              {categories.map((c) => (
                 <li key={c}>
                   <Link
                     className={c === category ? 'text-bold' : ''}
@@ -152,7 +206,32 @@ export default function SearchPage() {
                 </li>
               ))}
             </ul>
-          </div> */}
+          </div>
+
+          <h3>Color</h3>
+          <div>
+            <ul>
+              <li>
+                <Link
+                  className={'all' === color ? 'text-bold' : ''}
+                  to={getFilterUrl({ color: 'all' })}
+                >
+                  Any
+                </Link>
+              </li>
+              {colors.map((co) => (
+                <li key={co}>
+                  <Link
+                    className={co === color ? 'text-bold' : ''}
+                    to={getFilterUrl({ color: co })}
+                  >
+                    {co}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div>
             <h3>Price</h3>
             <ul>
@@ -212,8 +291,10 @@ export default function SearchPage() {
                   <div>
                     {countProducts === 0 ? 'No' : countProducts} Results
                     {query !== 'all' && ' : ' + query}
+                    {type !== 'all' && ' : ' + type}
                     {category !== 'all' && ' : ' + category}
                     {price !== 'all' && ' : Price ' + price}
+                    {color !== 'all' && ' : Color ' + color}
                     {rating !== 'all' && ' : Rating ' + rating + ' & up'}
                     {query !== 'all' ||
                     category !== 'all' ||

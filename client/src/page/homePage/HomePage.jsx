@@ -2,10 +2,12 @@
 import { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Product from '../../components/Product';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import MessageAlert from '../../components/MessageAlert';
+import HomeCategory from '../../components/HomeCategory';
 
 
 
@@ -43,24 +45,37 @@ function HomePage() {
     fetchData();
   }, []);
   return (
-    <div>
-      <h1>Featured Products</h1>
+    <div className=' bg-image' style={{ backgroundColor: "#F8EDEB" }}>
+      <h1>Brada Home Page</h1>
+      <HomeCategory></HomeCategory>
       <div className="products">
         {loading ? (
           <LoadingSpinner />
         ) : error ? (
           <MessageAlert variant="danger">{error}</MessageAlert>
         ) : (
-          <Row>
-            {products.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                <Product product={product}></Product>
-              </Col>
-            ))}
+          <Row lg={8} className="mb-3 d-flex justify-content-center">
+            <Col sm={6} md={8} lg={3}>
+              <Carousel variant="dark">
+                {products.map((product) => (
+                  // <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                  //   <Product product={product}></Product>
+                  // </Col>
+                  <Carousel.Item >
+                    <Link to={`/product/${product.slug}`}>
+                      <img src={product.image} className="card-img-top" alt={product.name} />
+                    </Link>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Col>
           </Row>
+          
         )}
       </div>
     </div>
   );
 }
 export default HomePage;
+
+

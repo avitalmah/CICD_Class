@@ -91,7 +91,7 @@ managerRouter.put(
   expressAsyncHandler(async (req, res) => {
     const checkProduct = await Product.findOne({ slug: req.body.slug });
     const notavailableProduct = await Product.findOne({ title: req.body.title });
-    if (notavailableProduct && notavailableProduct !== checkProduct) {
+    if (notavailableProduct && notavailableProduct.slug !== checkProduct.slug) {
       res.status(401).send({ message: 'Product name is already use, please select another name' });
     }
     else if (checkProduct) {
