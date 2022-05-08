@@ -122,7 +122,7 @@ const EditProduct = () => {
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
                                     <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Add Delivery Option</h2>
+                                        <h2 className="text-uppercase text-center mb-5">Edit Product</h2>
 
                                         <Form onSubmit={submitHandler}>
 
