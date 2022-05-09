@@ -9,21 +9,17 @@ const AboutPage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#D8E2DC" }}  >
+            <div className="vh-100 bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container rounded h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5 rounded" style={{ backgroundColor: "#FEC5BB" }} >
+                                    <div className="card-body p-5 rounded" style={{ backgroundColor: "#BFD3C1" }} >
                                         <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>About</h2>
 
-                                        <div>
-                                            Baghunter is a leading online platform for buying, selling, consigning, and swapping high-end luxury handbags including Hermes, Chanel, and Dior. An A+ BBB accredited business, Baghunter offers unparalleled access to authentic rare and exotic handbags, vintage handbags, customized handbags, limited edition handbags, special order handbags, and classic handbags.
-
-                                            Since launching in 2014, Baghunter has constantly led the way in the secondary luxury handbag industry with innovative ideas and supreme customer service, becoming the “go-to” destination for clients seeking authentic and quality pre-loved handbags. Our unique services include an exclusive VIP Club, a Bag Bespoke service for any handbag, and a Bag Concierge service to help clients locate almost any handbag in the world.
-
-                                            Baghunter is the first destination for women, collectors, and investors who are seeking genuine, authenticated handbags and access to rare bags from around the world that would otherwise be inaccessible.                                        </div>
+                                        <div> led the way in the secondary luxury handbag industry with innovative ideas and supreme customer service, becoming the “go-to” destination for clients seeking authentic and quality pre-loved handbags. Our unique services include an exclusive VIP Club, a Bag Bespoke service for any handbag, and a Bag Concierge service to help clients locate almost any handbag in the world.
+                                        </div>
                                         <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Returm item policy</h2>
                                         <h5 style={{ color: "#D8E2DC" }}>
                                             No Returns

@@ -41,13 +41,13 @@ const ContactUsPage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className="vh-100 bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
                                         <h2 className="text-uppercase text-center mb-5">Contact Us</h2>
 
                                         <Form onSubmit={submitHandler}>
@@ -101,7 +101,7 @@ const ContactUsPage = () => {
 
 
                                             <div className="mb-3 d-flex justify-content-center">
-                                                <Button type="submit">Send</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Send</Button>
                                             </div>
 
                                         </Form>
