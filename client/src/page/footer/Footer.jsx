@@ -12,9 +12,7 @@ function Footer() {
                         </h4>
                         <ul className="list-unstyled">
                             <li  >
-                                <Nav.Item>
-                                    <Nav.Link href="https://stackoverflow.com/questions/61830254/creat-hyperlink-for-footer-in-react">Theperfectgroup8@gmail.com</Nav.Link>
-                                </Nav.Item>
+                                Theperfectgroup8@gmail.com
                             </li>
                             <li >
                                 <Nav.Item>
@@ -23,7 +21,7 @@ function Footer() {
                             </li>
                             <li >
                                 <Nav.Item>
-                                    <Nav.Link href="https://stackoverflow.com/questions/61830254/creat-hyperlink-for-footer-in-react">Instagram</Nav.Link>
+                                    <Nav.Link href="https://www.instagram.com/brrrrada_web/?utm_medium=copy_link">Instagram</Nav.Link>
                                 </Nav.Item>
                             </li>
 
