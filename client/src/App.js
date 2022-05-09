@@ -23,6 +23,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchPage from './page/searchpage/SearchPage';
 import Footer from './page/footer/Footer';
+import AboutPage from './page/about/About';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/product/:slug" exact component={ProductScreen} />
           <Route path="/" exact component={HomePage} />
           <Route path="/cart" exact component={CartPage} />
+          <Route path="/About" exact component={AboutPage} />
           <Route path="/signin" exact component={SignIn} />
           <Route path="/signup" exact component={SignUp} />
           <Route path="/shipping" exact component={ShippingAddressPage} />
