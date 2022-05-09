@@ -22,6 +22,7 @@ import ContactUsPage from './page/contactUs/ContactUsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchPage from './page/searchpage/SearchPage';
+import Footer from './page/footer/Footer';
 
 function App() {
   return (
@@ -52,6 +53,9 @@ function App() {
           <Route path="/admin/product/edit/:slug" exact component={EditProduct} />
         </Switch>
       </HashRouter>
+      <div>
+      <Footer/>
+      </div> 
     </div>
   );
 }

@@ -46,7 +46,9 @@ function HomePage() {
   }, []);
   return (
     <div className=' bg-image' style={{ backgroundColor: "#F8EDEB" }}>
-      <h1>Brada Home Page</h1>
+      <div className="mb-3 d-flex justify-content-center">
+        <h1>Brada Home Page</h1>
+      </div>
       <HomeCategory></HomeCategory>
       <div className="products">
         {loading ? (
@@ -70,7 +72,7 @@ function HomePage() {
               </Carousel>
             </Col>
           </Row>
-          
+
         )}
       </div>
     </div>
