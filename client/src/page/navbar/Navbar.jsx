@@ -17,19 +17,19 @@ const Header = () => {
   };
   if (userInfo && userInfo.isAdmin)
     return (
-      <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#/">Home</Navbar.Brand>
+      <Navbar bg="light" expand="lg" >
+        <Container fluid  style={{background:"#694F5D"}}>
+          <Navbar.Brand style={{color:"#BFD3C1"}} href="#/">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <SearchBox />
             <Nav
               className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
+              style={{ maxHeight: '100px'}}
               navbarScroll
             >
-              <Nav.Link href="#/contactus">Contact Us</Nav.Link>
-              <Nav.Link href="#/About">About</Nav.Link>
+              <Nav.Link style={{color:"#BFD3C1"}}  href="#/contactus">Contact Us</Nav.Link>
+              <Nav.Link style={{color:"#BFD3C1"}} href="#/About">About</Nav.Link>
               <Link to="/cart" className="nav-link fa-solid fa-cart-shopping">
                 <CartFill />
                 {cart.cartItems.length > 0 && (
@@ -42,18 +42,18 @@ const Header = () => {
                 <BagHeartFill />
               </Link>
               <NavDropdown title={userInfo.firstName} id="basic-nav-dropdown">
-                <NavDropdown.Item><Link to="/profile" className="nav-link">User Profile</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/orderhistory" className="nav-link">Order History</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/profile" className="nav-link">User Profile</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/orderhistory" className="nav-link">Order History</Link></NavDropdown.Item>
                 <NavDropdown.Divider />
                 <Link className="dropdown-item" to="/" onClick={signoutHandler}>Sign Out</Link>
               </NavDropdown>
               <NavDropdown title="Admin" id="admin-nav-dropdown">
-                <NavDropdown.Item><Link to="/admin/dashboard" className="nav-link">Dashboard</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/admin/pushmessage" className="nav-link">Push Message</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/admin/adddeliveryoption" className="nav-link">Add Delivery Option</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/admin/delivery" className="nav-link">Deliveries Options</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/admin/addproduct" className="nav-link">Add Product</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/admin/editcatalog" className="nav-link">Edit Catalog</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/dashboard" className="nav-link">Dashboard</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/pushmessage" className="nav-link">Push Message</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/adddeliveryoption" className="nav-link">Add Delivery Option</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/delivery" className="nav-link">Deliveries Options</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/addproduct" className="nav-link">Add Product</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/editcatalog" className="nav-link">Edit Catalog</Link></NavDropdown.Item>
               </NavDropdown>
             </Nav>
 
@@ -65,8 +65,8 @@ const Header = () => {
   else if (userInfo)
     return (
       <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#/">Home</Navbar.Brand>
+        <Container fluid  style={{background:"#694F5D"}}>
+          <Navbar.Brand style={{color:"#BFD3C1"}} href="#/">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <SearchBox />
@@ -75,8 +75,8 @@ const Header = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link href="#/contactus">Contact Us</Nav.Link>
-              <Nav.Link href="#/About">About</Nav.Link>
+              <Nav.Link style={{color:"#BFD3C1"}} href="#/contactus">Contact Us</Nav.Link>
+              <Nav.Link style={{color:"#BFD3C1"}} href="#/About">About</Nav.Link>
               <Link to="/cart" className="nav-link fa-solid fa-cart-shopping">
                 <CartFill />
                 {cart.cartItems.length > 0 && (
@@ -85,12 +85,12 @@ const Header = () => {
                   </Badge>
                 )}
               </Link>
-              <Link to="/cart" className="nav-link fa-solid fa-cart-shopping">
+              <Link  style={{color:"#BFD3C1"}} to="/cart" className="nav-link fa-solid fa-cart-shopping">
                 <BagHeartFill />
               </Link>
               <NavDropdown title={userInfo.firstName} id="basic-nav-dropdown">
-                <NavDropdown.Item><Link to="/profile" className="nav-link">User Profile</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/orderhistory" className="nav-link">Order History</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link  style={{color:"#BFD3C1"}} to="/profile" className="nav-link">User Profile</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/orderhistory" className="nav-link">Order History</Link></NavDropdown.Item>
                 <NavDropdown.Divider />
                 <Link className="dropdown-item" to="/" onClick={signoutHandler}>Sign Out</Link>
               </NavDropdown>
@@ -102,8 +102,8 @@ const Header = () => {
   else
     return (
       <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#/">Home</Navbar.Brand>
+        <Container fluid style={{background:"#694F5D",color:"#BFD3C1"}}>
+          <Navbar.Brand style={{color:"#BFD3C1"}} href="#/">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <SearchBox />
@@ -112,10 +112,10 @@ const Header = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link href="#/contactus">Contact Us</Nav.Link>
-              <Nav.Link href="#/About">About</Nav.Link>
-              <Nav.Link href="#/signup">Sign Up</Nav.Link>
-              <Nav.Link href="#/signin" >Login</Nav.Link>
+              <Nav.Link style={{color:"#BFD3C1"}} href="#/contactus">Contact Us</Nav.Link>
+              <Nav.Link  style={{color:"#BFD3C1"}} href="#/About">About</Nav.Link>
+              <Nav.Link style={{color:"#BFD3C1"}} href="#/signup">Sign Up</Nav.Link>
+              <Nav.Link style={{color:"#BFD3C1"}} href="#/signin" >Login</Nav.Link>
               {/* <Link to="/cart" className="nav-link fa-solid fa-cart-shopping">
                 <CartFill />
                 {cart.cartItems.length > 0 && (

@@ -3,25 +3,25 @@ import { Nav } from "react-bootstrap"
 
 function Footer() {
     return (
-        <div className="main-footer">
-            <div className="container" style={{ backgroundColor: "#F8EDEB" }}>
+        <div className="main-footer" style={{ backgroundColor: "#694F5D" }}>
+            <div className="container rounded" style={{ backgroundColor: "#BFD3C1" }}>
                 <div className="row">
-                    <div className="col-md-2 col-sm-6 mx-3">
-                        <h4>
+                    <div className="col-md-2 col-sm-6 mx-3 font-weight-bold">
+                        <h4 style={{ color: "#694F5D" }} >
                             Contact us
                         </h4>
-                        <ul className="list-unstyled">
-                            <li  >
-                                Theperfectgroup8@gmail.com
+                        <ul className="list-unstyled" >
+                            <li  style={{ color: "#694F5D" }} >
+                                  Theperfectgroup8@gmail.com
                             </li>
                             <li >
-                                <Nav.Item>
-                                    <Nav.Link href="https://stackoverflow.com/questions/61830254/creat-hyperlink-for-footer-in-react">Facebook</Nav.Link>
+                                <Nav.Item >
+                                    <Nav.Link style={{ color: "#694F5D" }} href="https://www.facebook.com/profile.php?id=100081003196369">Facebook</Nav.Link>
                                 </Nav.Item>
                             </li>
-                            <li >
+                            <li className="font-weight-bold" >
                                 <Nav.Item>
-                                    <Nav.Link href="https://www.instagram.com/brrrrada_web/?utm_medium=copy_link">Instagram</Nav.Link>
+                                    <Nav.Link  style={{ color: "#694F5D" }} href="https://www.instagram.com/brrrrada_web/?utm_medium=copy_link">Instagram</Nav.Link>
                                 </Nav.Item>
                             </li>
 
@@ -30,11 +30,11 @@ function Footer() {
 
 
                     <div className="col-md-2 col-sm-6 mx-3">
-                        <h4>
+                        <h4 style={{ color: "#694F5D" }}>
                             Avital Mahgerefte
                         </h4>
                         <li className="list-unstyled" >
-                            <img
+                            <img 
                                 src='https://icon-library.com/images/woman-icon-vector/woman-icon-vector-9.jpg'
                                 className='img-fluid rounded-circle'
                                 alt=''
@@ -44,7 +44,7 @@ function Footer() {
 
                     </div>
                     <div className="col-md-2 col-sm-6 mx-3">
-                        <h4>
+                        <h4 style={{ color: "#694F5D" }}>
                             Ron Mansharof
                         </h4>
                         <li className="list-unstyled" >
@@ -58,7 +58,7 @@ function Footer() {
 
                     </div>
                     <div className="col-md-2 col-sm-6 mx-3">
-                        <h4>
+                        <h4 style={{ color: "#694F5D" }}>
                             Lion Dahan
                         </h4>
                         <li className="list-unstyled" >
@@ -72,8 +72,8 @@ function Footer() {
 
                     </div>
                     <div className="col-md-2 col-sm-6 mx-3">
-                        <h4>
-                            Nika Tatikasvili
+                        <h4 style={{ color: "#694F5D" }}>
+                            Nika Tatikishvili
                         </h4>
                         <li className="list-unstyled" >
                             <img
@@ -87,7 +87,7 @@ function Footer() {
                     </div>
                 </div>
                 {/* Footer Bottom */}
-                <div className="footer-bottom">
+                <div className="footer-bottom" style={{ color: "#694F5D" }}>
                     <p  className="mb-3 d-flex justify-content-center">
                         &copy;{new Date().getFullYear()} Brada
                     </p>

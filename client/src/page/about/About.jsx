@@ -9,22 +9,34 @@ const AboutPage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className="vh-100 bg-image" style={{ backgroundColor: "#D8E2DC" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-                    <div className="container h-100">
+                    <div className="container rounded h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">About</h2>
+                                    <div className="card-body p-5 rounded" style={{ backgroundColor: "#FEC5BB" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>About</h2>
 
-                                         <div>
-                                             bla bla bla 
-                                         </div>
-                                         <h2 className="text-uppercase text-center mb-5">Returm item policy</h2>
-                                         <div>
-                                             bla bla bla 
-                                         </div>
+                                        <div>
+                                            Baghunter is a leading online platform for buying, selling, consigning, and swapping high-end luxury handbags including Hermes, Chanel, and Dior. An A+ BBB accredited business, Baghunter offers unparalleled access to authentic rare and exotic handbags, vintage handbags, customized handbags, limited edition handbags, special order handbags, and classic handbags.
+
+                                            Since launching in 2014, Baghunter has constantly led the way in the secondary luxury handbag industry with innovative ideas and supreme customer service, becoming the “go-to” destination for clients seeking authentic and quality pre-loved handbags. Our unique services include an exclusive VIP Club, a Bag Bespoke service for any handbag, and a Bag Concierge service to help clients locate almost any handbag in the world.
+
+                                            Baghunter is the first destination for women, collectors, and investors who are seeking genuine, authenticated handbags and access to rare bags from around the world that would otherwise be inaccessible.                                        </div>
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Returm item policy</h2>
+                                        <h5 style={{ color: "#D8E2DC" }}>
+                                            No Returns
+                                        </h5>
+                                        <div>
+                                            We do not accept returns, all purchases are final. We describe our bags very accurately and request that you ask all questions before you make a purchase. We will gladly answer any questions you have as well as provide additional pictures upon request.
+                                        </div>
+                                        <h5 style={{ color: "#D8E2DC" }}>
+                                            No Refunds
+                                        </h5>
+                                        <div>
+                                            We do not give any refunds as we do not accept returns and all purchases are final sale without exception. The only reason a refund would be issued is if a bag is not authentic, which has never once happened on Baghunter and never will. Our team of authentication experts inspect and authenticate every bag before it is shipped to our clients.
+                                        </div>
 
                                     </div>
                                 </div>

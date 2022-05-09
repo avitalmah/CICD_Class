@@ -45,12 +45,12 @@ function HomePage() {
     fetchData();
   }, []);
   return (
-    <div className=' bg-image' style={{ backgroundColor: "#F8EDEB" }}>
+    <div className=' bg-image' style={{ backgroundColor: "#BFD3C1" }}>
       <div className="mb-3 d-flex justify-content-center">
-        <h1>Brada Home Page</h1>
+        <h1 style={{color:"#694F5D"}}>Brada Home Page</h1>
       </div>
       <HomeCategory></HomeCategory>
-      <div className="products">
+      <div className="products" >
         {loading ? (
           <LoadingSpinner />
         ) : error ? (
