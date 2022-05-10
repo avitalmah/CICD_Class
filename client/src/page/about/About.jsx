@@ -9,12 +9,12 @@ const AboutPage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#694F5D" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container rounded h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                                <div className="card" itemID="check">
+                                <div className="card mb-3" itemID="check">
                                     <div className="card-body p-5 rounded" style={{ backgroundColor: "#BFD3C1" }} >
                                         <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>About</h2>
 

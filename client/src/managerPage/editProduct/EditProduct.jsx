@@ -115,20 +115,20 @@ const EditProduct = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Edit Product</h2>
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Edit Product</h2>
 
                                         <Form onSubmit={submitHandler}>
 
                                             {/* TOPIC */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Product Name<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Product Name<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     placeholder="Product Name"
@@ -137,7 +137,7 @@ const EditProduct = () => {
                                             </Form.Group>
 
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Product Image<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Product Image<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     placeholder="Product Image URL"
@@ -148,7 +148,7 @@ const EditProduct = () => {
                                             <div className="row">
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Brand</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Brand</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Brand"
@@ -160,7 +160,7 @@ const EditProduct = () => {
 
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Type</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Type</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Type"
@@ -172,7 +172,7 @@ const EditProduct = () => {
 
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Category</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Category</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Category"
@@ -183,7 +183,7 @@ const EditProduct = () => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Size</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Size</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Size"
@@ -197,7 +197,7 @@ const EditProduct = () => {
                                             <div className="row">
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Color</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Color</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Color"
@@ -211,7 +211,7 @@ const EditProduct = () => {
 
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Count In Stock</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Count In Stock</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="count In Stock"
@@ -225,7 +225,7 @@ const EditProduct = () => {
 
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Price</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Price</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Price"
@@ -239,7 +239,7 @@ const EditProduct = () => {
                                             </div>
 
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Description<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Description<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     as="textarea" rows={3}
                                                     required type="text"
@@ -249,11 +249,11 @@ const EditProduct = () => {
                                             </Form.Group>
 
                                             <div className="mb-3 d-flex justify-content-center">
-                                                <Button type="submit">Update Product</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Update Product</Button>
                                             </div>
 
                                             <div className="mb-3 d-flex justify-content-center">
-                                                <Button variant="secondary" onClick={() => deleteHandler(product)}><Trash></Trash></Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} variant="secondary" onClick={() => deleteHandler(product)}><Trash></Trash></Button>
                                             </div>
 
                                         </Form>

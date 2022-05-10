@@ -43,7 +43,7 @@ const reducer = (state, action) => {
     }, []);
     return (
       <div>
-        <h1>Edit Catalog</h1>
+        <h1 className="d-flex justify-content-center" style={{color:"#694F5D"}}>Edit Catalog</h1>
         <div className="products">
           {loading ? (
             <LoadingSpinner />

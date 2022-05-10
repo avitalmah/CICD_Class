@@ -87,33 +87,33 @@ function ProductScreen() {
       <MessageAlert variant="danger">{error}</MessageAlert>
     ) : (
       <div >
-        <div className=" bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+        <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
           <div className="mask d-flex align-items-center h-100 gradient-custom-3">
             <div className="container h-100">
               <div className="row d-flex justify-content-center align-items-center h-100">
                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                   <div className="card m-3" itemID="check">
-                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
+                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
                       <h2 className="text-uppercase text-center mb-5">{product.title}</h2>
                       <img src={product.image} className="card-img-top" alt={product.title} />
-                      <Card.Title>{product.title}</Card.Title>
-                      <Rating rating={product.rating} numReviews={product.numReviews} />
-                      <Card.Text><strong>Brand: </strong>{product.brand}</Card.Text>
-                      <Card.Text><strong>Type: </strong>{product.type}</Card.Text>
-                      <Card.Text><strong>Category: </strong>{product.category}</Card.Text>
-                      <Card.Text><strong>Color: </strong>{product.color}</Card.Text>
-                      <Card.Text><strong>Size: </strong>{product.size}</Card.Text>
-                      <Card.Text><strong>Color: </strong>{product.color}</Card.Text>
-                      <Card.Text><strong>Description: </strong>{product.description}</Card.Text>
-                      <Card.Text><strong>Price: </strong>${product.price}</Card.Text>
+                      <Card.Title style={{ color: "#D8E2DC" }}>{product.title}</Card.Title>
+                      <Rating style={{ color: "#D8E2DC" }} rating={product.rating} numReviews={product.numReviews} />
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Brand: </strong>{product.brand}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Type: </strong>{product.type}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Category: </strong>{product.category}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Color: </strong>{product.color}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Size: </strong>{product.size}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Color: </strong>{product.color}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Description: </strong>{product.description}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Price: </strong>${product.price}</Card.Text>
                       {product.countInStock === 0 ? (
                         <Button variant="light" disabled>
                           Out of stock
                         </Button>
                       ) : (
-                        <Button onClick={() => addToCartHandler()}>Add to cart</Button>
+                        <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToCartHandler()}>Add to cart</Button>
                       )}
-                      <Button className='mx-3' variant="light" onClick={() => editHandler()} >
+                      <Button style={{ backgroundColor: "#694F5D" }} className='mx-3' variant="light" onClick={() => editHandler()} >
                         Edit
                       </Button>
                     </div>
@@ -134,31 +134,31 @@ function ProductScreen() {
       <MessageAlert variant="danger">{error}</MessageAlert>
     ) : (
       <div >
-        <div className=" bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+        <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
           <div className="mask d-flex align-items-center h-100 gradient-custom-3">
             <div className="container h-100">
               <div className="row d-flex justify-content-center align-items-center h-100">
                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                   <div className="card m-3" itemID="check">
-                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
+                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
                       <h2 className="text-uppercase text-center mb-5">{product.title}</h2>
                       <img src={product.image} className="card-img-top" alt={product.title} />
-                      <Card.Title>{product.title}</Card.Title>
+                      <Card.Title style={{ color: "#D8E2DC" }}>{product.title}</Card.Title>
                       <Rating rating={product.rating} numReviews={product.numReviews} />
-                      <Card.Text><strong>Brand: </strong>{product.brand}</Card.Text>
-                      <Card.Text><strong>Type: </strong>{product.type}</Card.Text>
-                      <Card.Text><strong>Category: </strong>{product.category}</Card.Text>
-                      <Card.Text><strong>Color: </strong>{product.color}</Card.Text>
-                      <Card.Text><strong>Size: </strong>{product.size}</Card.Text>
-                      <Card.Text><strong>Color: </strong>{product.color}</Card.Text>
-                      <Card.Text><strong>Description: </strong>{product.description}</Card.Text>
-                      <Card.Text><strong>Price: </strong>${product.price}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Brand: </strong>{product.brand}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Type: </strong>{product.type}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Category: </strong>{product.category}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Color: </strong>{product.color}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Size: </strong>{product.size}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Color: </strong>{product.color}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Description: </strong>{product.description}</Card.Text>
+                      <Card.Text style={{ color: "#D8E2DC" }}><strong>Price: </strong>${product.price}</Card.Text>
                       {product.countInStock === 0 ? (
-                        <Button variant="light" disabled>
+                        <Button  variant="light" disabled>
                           Out of stock
                         </Button>
                       ) : (
-                        <Button onClick={() => addToCartHandler()}>Add to cart</Button>
+                        <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToCartHandler()}>Add to cart</Button>
                       )}
 
                     </div>

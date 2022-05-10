@@ -80,21 +80,21 @@ const ProfilePage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">User Profile</h2>
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>User Profile</h2>
 
                                         <Form onSubmit={submitHandler}>
                                             {/* FIRST NAME */}
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <Form.Group className="mb-4" controlId="formBasicFirstName">
-                                                        <Form.Label>First Name</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>First Name</Form.Label>
                                                         <Form.Control
                                                             required type="text"
                                                             name="first-name"
@@ -109,7 +109,7 @@ const ProfilePage = () => {
                                                 {/* LAST NAME */}
                                                 <div className="col-md-6">
                                                     <Form.Group className="mb-4" controlId="formBasicLastName">
-                                                        <Form.Label>Last Name</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Last Name</Form.Label>
                                                         <Form.Control
                                                             required type="text"
                                                             name="last-name"
@@ -124,7 +124,7 @@ const ProfilePage = () => {
 
                                             {/* EMAIL */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Email address</Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Email address</Form.Label>
                                                 <Form.Control
                                                     required type="email"
                                                     placeholder="Enter email"
@@ -140,7 +140,7 @@ const ProfilePage = () => {
                                                 {/* City */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicCity">
-                                                        <Form.Label>City</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>City</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="City"
@@ -155,7 +155,7 @@ const ProfilePage = () => {
                                                 {/* STREET */}
                                                 <div className="col-md-8">
                                                     <Form.Group className="mb-4" controlId="formBasicStreet">
-                                                        <Form.Label>Street</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Street</Form.Label>
                                                         <Form.Control type="text"
                                                             placeholder="Street"
                                                             pattern="[A-Za-z' ']{1,20}"
@@ -171,7 +171,7 @@ const ProfilePage = () => {
                                                 {/* Street num */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Street Number</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Street Number</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Street Num"
@@ -186,7 +186,7 @@ const ProfilePage = () => {
                                                 {/* Apt num */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicAptNumber">
-                                                        <Form.Label>Apt Number</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Apt Number</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Apt Num"
@@ -201,7 +201,7 @@ const ProfilePage = () => {
                                                 {/* Zip */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicZip">
-                                                        <Form.Label>ZIP Code</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>ZIP Code</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="ZIP Code"
@@ -214,7 +214,7 @@ const ProfilePage = () => {
                                                 </div>
                                             </div>
                                             <div className="mb-3">
-                                                <Button type="submit">Update</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Update</Button>
                                             </div>
 
                                         </Form>

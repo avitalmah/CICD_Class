@@ -82,25 +82,25 @@ const ShippingAddressPage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Shipping Adress</h2>
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Shipping Adress</h2>
 
                                         <Form onSubmit={submitHandler}>
                                             {/* COUNTRY */}
-                                            <Form.Label>Country</Form.Label>
+                                            <Form.Label style={{ color: "#D8E2DC" }}>Country</Form.Label>
                                             <Select className="mb-4" options={options} value={country.label} defaultValue={country} onChange={countryHandler} />
 
                                             <div className="row">
                                                 {/* City */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicCity">
-                                                        <Form.Label>City</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>City</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="City"
@@ -115,7 +115,7 @@ const ShippingAddressPage = () => {
                                                 {/* STREET */}
                                                 <div className="col-md-8">
                                                     <Form.Group className="mb-4" controlId="formBasicStreet">
-                                                        <Form.Label>Street</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Street</Form.Label>
                                                         <Form.Control type="text"
                                                             placeholder="Street"
                                                             pattern="[A-Za-z' ']{1,20}"
@@ -131,7 +131,7 @@ const ShippingAddressPage = () => {
                                                 {/* Street num */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Street Number</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Street Number</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Street Num"
@@ -146,7 +146,7 @@ const ShippingAddressPage = () => {
                                                 {/* Apt num */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicAptNumber">
-                                                        <Form.Label>Apt Number</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Apt Number</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Apt Num"
@@ -161,7 +161,7 @@ const ShippingAddressPage = () => {
                                                 {/* Zip */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicZip">
-                                                        <Form.Label>ZIP Code</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>ZIP Code</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="ZIP Code"
@@ -174,7 +174,7 @@ const ShippingAddressPage = () => {
                                                 </div>
                                             </div>
                                             <div className="mb-3">
-                                                <Button type="submit">Continue</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Continue</Button>
                                             </div>
 
                                         </Form>

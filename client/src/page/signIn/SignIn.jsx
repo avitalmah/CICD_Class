@@ -40,19 +40,19 @@ const SignIn = () => {
     }, [history, redirect, userInfo]);
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Log In</h2>
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Log In</h2>
 
                                         <Form onSubmit={submitHandler}>
 
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Email</Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Email</Form.Label>
                                                 <Form.Control
                                                     type="email"
                                                     required
@@ -66,16 +66,16 @@ const SignIn = () => {
 
 
                                             <Form.Group className="mb-4" controlId="formBasicPassword">
-                                                <Form.Label>Password</Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Password</Form.Label>
                                                 <Form.Control
                                                     type="password"
                                                     required
                                                     onChange={(e) => setPassword(e.target.value)}
                                                 />
                                             </Form.Group>
-
-                                            <Button type="submit">Sign In</Button>
-
+                                            <div className="mb-3 d-flex justify-content-center">
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Sign in</Button>
+                                            </div>
                                             <p className="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#/signup" className="fw-bold text-body"><u>Register</u></a></p>
                                             <p className="text-center text-muted mt-5 mb-0">Forgot your password? <a href="#/resetpassword" className="fw-bold text-body"><u>Reset Password</u></a></p>
                                         </Form>

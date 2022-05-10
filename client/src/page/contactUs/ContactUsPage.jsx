@@ -41,20 +41,20 @@ const ContactUsPage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#694F5D" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                                <div className="card" itemID="check">
+                                <div className="card mb-3" itemID="check">
                                     <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Contact Us</h2>
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Contact Us</h2>
 
                                         <Form onSubmit={submitHandler}>
                                             {/* FIRST NAME */}
 
                                             <Form.Group className="mb-4" controlId="formBasicFirstName">
-                                                <Form.Label>Name<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }} >Name<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     pattern="[A-Za-z' ']{1,40}"
@@ -67,7 +67,7 @@ const ContactUsPage = () => {
 
                                             {/* EMAIL */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Email address<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Email address<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="email"
                                                     placeholder="Enter email"
@@ -80,7 +80,7 @@ const ContactUsPage = () => {
 
                                             {/* TOPIC */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Topic<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Topic<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     placeholder="Topic"
@@ -90,12 +90,13 @@ const ContactUsPage = () => {
 
                                             {/* MESSAGE */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Message<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Message<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     as="textarea" rows={3}
                                                     required type="text"
                                                     placeholder="Enter your message here."
                                                     value={message}
+                                                    style={{ color: "#D8E2DC" }}
                                                     onChange={(e) => setMessage(e.target.value)} />
                                             </Form.Group>
 

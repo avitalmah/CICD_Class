@@ -37,20 +37,20 @@ const PushMessage = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Push Message</h2>
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Push Message</h2>
 
                                         <Form onSubmit={submitHandler}>
 
                                             {/* TOPIC */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Topic<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Topic<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     placeholder="Topic"
@@ -60,7 +60,7 @@ const PushMessage = () => {
 
                                             {/* MESSAGE */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Message<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{ color: "#D8E2DC" }}>Message<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     as="textarea" rows={3}
                                                     required type="text"
@@ -71,7 +71,7 @@ const PushMessage = () => {
 
 
                                             <div className="mb-3 d-flex justify-content-center">
-                                                <Button type="submit">Send</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Send</Button>
                                             </div>
 
                                         </Form>

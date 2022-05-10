@@ -41,20 +41,20 @@ const AddDelivery = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Add Delivery Option</h2>
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{color:"#D8E2DC"}}>Add Delivery Option</h2>
 
                                         <Form onSubmit={submitHandler}>
 
                                             {/* TOPIC */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Delivery Name<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{color:"#D8E2DC"}}>Delivery Name<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     placeholder="Delivery Name"
@@ -65,7 +65,7 @@ const AddDelivery = () => {
                                             <div className="row">
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Min Days</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Min Days</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Min Days"
@@ -79,7 +79,7 @@ const AddDelivery = () => {
 
                                                 <div className="col-md-4">
                                                 <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Max Days</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Max Days</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Max Days"
@@ -93,7 +93,7 @@ const AddDelivery = () => {
 
                                                 <div className="col-md-4">
                                                 <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Price</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Price</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Price"
@@ -108,7 +108,7 @@ const AddDelivery = () => {
 
 
                                             <div className="mb-3 d-flex justify-content-center">
-                                                <Button type="submit">Add</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Add</Button>
                                             </div>
 
                                         </Form>

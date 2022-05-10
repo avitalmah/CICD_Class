@@ -75,21 +75,21 @@ const PaymentPage = () => {
 
     return (
         <div >
-            <div className=" bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                 <div className="card m-5" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Payment</h2>
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Payment</h2>
 
                                         <Form onSubmit={submitHandler}>
 
                                             <div className="row">
                                                 <div className="col-md-6">
                                                     <Form.Group className="mb-4" controlId="formBasicFirstName">
-                                                        <Form.Label>First Name</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>First Name</Form.Label>
                                                         <Form.Control
                                                             required type="text"
                                                             placeholder="Last Name"
@@ -101,7 +101,7 @@ const PaymentPage = () => {
                                                 {/* LAST NAME */}
                                                 <div className="col-md-6">
                                                     <Form.Group className="mb-4" controlId="formBasicLastName">
-                                                        <Form.Label>Last Name</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Last Name</Form.Label>
                                                         <Form.Control
                                                             required type="text"
                                                             placeholder="Last Name"
@@ -115,7 +115,7 @@ const PaymentPage = () => {
                                                 {/* Credit Card Number */}
                                                 <div className="col-md-12">
                                                     <Form.Group className="mb-4" controlId="formBasicCity">
-                                                        <Form.Label>Credit Card Number</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Credit Card Number</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Credit Card Number"
@@ -129,7 +129,7 @@ const PaymentPage = () => {
                                                 {/* Month Expiry */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Month Expiry</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Month Expiry</Form.Label>
                                                         <Form.Control
                                                             required type="text"
                                                             placeholder="Month Expiry"
@@ -142,7 +142,7 @@ const PaymentPage = () => {
                                                 {/* Year Expiry*/}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicAptNumber">
-                                                        <Form.Label>Year Expiry</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>Year Expiry</Form.Label>
                                                         <Form.Control
                                                             required type="text"
                                                             placeholder="Year Expiry"
@@ -154,7 +154,7 @@ const PaymentPage = () => {
                                                 {/* CVV */}
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicZip">
-                                                        <Form.Label>CVV</Form.Label>
+                                                        <Form.Label style={{ color: "#D8E2DC" }}>CVV</Form.Label>
                                                         <Form.Control
                                                             required type="text"
                                                             placeholder="CVV"
@@ -166,7 +166,7 @@ const PaymentPage = () => {
                                             <h2 className="text-uppercase text-center mb-5">Order Summary</h2>
                                             <Card className="mb-3" >
                                                 <Card.Body>
-                                                    <Card.Title>Shipping</Card.Title>
+                                                    <Card.Title style={{ color: "#D8E2DC" }}>Shipping</Card.Title>
                                                     <Card.Text >
                                                         <strong>Country:</strong> {cart.shippingAddress.country} <br />
                                                         <strong>City:</strong> {cart.shippingAddress.city} <br />
@@ -181,7 +181,7 @@ const PaymentPage = () => {
 
                                             <Card className="mb-3">
                                                 <Card.Body>
-                                                    <Card.Title>Items</Card.Title>
+                                                    <Card.Title style={{ color: "#D8E2DC" }}>Items</Card.Title>
                                                     <ListGroup variant="flush">
                                                         {cart.cartItems.map((item) => (
                                                             <ListGroup.Item key={item._id}>
@@ -207,7 +207,7 @@ const PaymentPage = () => {
                                             </Card>
 
                                             <div className="mb-3 d-flex justify-content-center">
-                                                <Button type="submit">Pay</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit" >Pay</Button>
                                             </div>
 
                                         </Form>

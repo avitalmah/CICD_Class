@@ -157,14 +157,14 @@ export default function SearchPage() {
     return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&color=${filterColor}&type=${filterTypes}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
-    <div>
+    <div style={{ backgroundColor: "#694F5D" }}>
       <Row>
         <Col md={2}>
-          <h3>Types</h3>
+          <h3 style={{color:"#BFD3C1"}}>Types</h3>
           <div>
             <ul>
               <li>
-                <Link
+                <Link style={{color:"#BFD3C1"}}
                   className={'all' === type ? 'text-bold' : ''}
                   to={getFilterUrl({ type: 'all' })}
                 >
@@ -173,7 +173,7 @@ export default function SearchPage() {
               </li>
               {types.map((t) => (
                 <li key={t}>
-                  <Link
+                  <Link style={{color:"#BFD3C1"}}
                     className={t === type ? 'text-bold' : ''}
                     to={getFilterUrl({ type: t })}
                   >
@@ -184,11 +184,11 @@ export default function SearchPage() {
             </ul>
           </div>
 
-          <h3>Categories</h3>
+          <h3 style={{color:"#BFD3C1"}}>Categories</h3>
           <div>
             <ul>
               <li>
-                <Link
+                <Link style={{color:"#BFD3C1"}}
                   className={'all' === category ? 'text-bold' : ''}
                   to={getFilterUrl({ category: 'all' })}
                 >
@@ -197,7 +197,7 @@ export default function SearchPage() {
               </li>
               {categories.map((c) => (
                 <li key={c}>
-                  <Link
+                  <Link style={{color:"#BFD3C1"}}
                     className={c === category ? 'text-bold' : ''}
                     to={getFilterUrl({ category: c })}
                   >
@@ -208,11 +208,11 @@ export default function SearchPage() {
             </ul>
           </div>
 
-          <h3>Color</h3>
+          <h3 style={{color:"#BFD3C1"}}>Color</h3>
           <div>
             <ul>
               <li>
-                <Link
+                <Link style={{color:"#BFD3C1"}}
                   className={'all' === color ? 'text-bold' : ''}
                   to={getFilterUrl({ color: 'all' })}
                 >
@@ -221,7 +221,7 @@ export default function SearchPage() {
               </li>
               {colors.map((co) => (
                 <li key={co}>
-                  <Link
+                  <Link style={{color:"#BFD3C1"}}
                     className={co === color ? 'text-bold' : ''}
                     to={getFilterUrl({ color: co })}
                   >
@@ -233,10 +233,10 @@ export default function SearchPage() {
           </div>
 
           <div>
-            <h3>Price</h3>
+            <h3 style={{color:"#BFD3C1"}}>Price</h3>
             <ul>
-              <li>
-                <Link
+              <li >
+                <Link style={{color:"#BFD3C1"}}
                   className={'all' === price ? 'text-bold' : ''}
                   to={getFilterUrl({ price: 'all' })}
                 >
@@ -244,8 +244,8 @@ export default function SearchPage() {
                 </Link>
               </li>
               {prices.map((p) => (
-                <li key={p.value}>
-                  <Link
+                <li style={{color:"#BFD3C1"}} key={p.value}>
+                  <Link style={{color:"#BFD3C1"}}
                     to={getFilterUrl({ price: p.value })}
                     className={p.value === price ? 'text-bold' : ''}
                   >
@@ -256,11 +256,11 @@ export default function SearchPage() {
             </ul>
           </div>
           <div>
-            <h3>Avg. Customer Review</h3>
+            <h3 style={{color:"#BFD3C1"}}>Avg. Customer Review</h3>
             <ul>
               {ratings.map((r) => (
                 <li key={r.name}>
-                  <Link
+                  <Link style={{color:"#BFD3C1"}}
                     to={getFilterUrl({ rating: r.rating })}
                     className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
                   >
@@ -269,7 +269,7 @@ export default function SearchPage() {
                 </li>
               ))}
               <li>
-                <Link
+                <Link style={{color:"#BFD3C1"}}
                   to={getFilterUrl({ rating: 'all' })}
                   className={rating === 'all' ? 'text-bold' : ''}
                 >
@@ -283,10 +283,10 @@ export default function SearchPage() {
           {loading ? (
             <LoadingSpinner></LoadingSpinner>
           ) : error ? (
-            <MessageAlert variant="danger">{error}</MessageAlert>
+            <MessageAlert style={{color:"#BFD3C1"}} variant="danger">{error}</MessageAlert>
           ) : (
             <>
-              <Row className="justify-content-between mb-3">
+              <Row className="justify-content-between mb-3" style={{color:"#BFD3C1"}}>
                 <Col md={6}>
                   <div>
                     {countProducts === 0 ? 'No' : countProducts} Results

@@ -53,20 +53,20 @@ const AddProduct = () => {
 
     return (
         <div >
-            <div className="vh-100 bg-image" style={{ backgroundColor: "#F8EDEB" }}  >
+            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                                <div className="card" itemID="check">
-                                    <div className="card-body p-5" style={{ backgroundColor: "#FCD5CE" }} >
-                                        <h2 className="text-uppercase text-center mb-5">Add Product</h2>
+                                <div className="card mb-3" itemID="check">
+                                    <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
+                                        <h2 className="text-uppercase text-center mb-5" style={{color:"#D8E2DC"}}>Add Product</h2>
 
                                         <Form onSubmit={submitHandler}>
 
                                             {/* TOPIC */}
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Product Name<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{color:"#D8E2DC"}}>Product Name<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     placeholder="Product Name"
@@ -75,7 +75,7 @@ const AddProduct = () => {
                                             </Form.Group>
 
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Product Image<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{color:"#D8E2DC"}}>Product Image<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     required type="text"
                                                     placeholder="Product Image URL"
@@ -86,7 +86,7 @@ const AddProduct = () => {
                                             <div className="row">
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Brand</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Brand</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Brand"
@@ -98,7 +98,7 @@ const AddProduct = () => {
 
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Type</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Type</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Type"
@@ -110,7 +110,7 @@ const AddProduct = () => {
 
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Category</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Category</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Category"
@@ -121,7 +121,7 @@ const AddProduct = () => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Size</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Size</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Size"
@@ -135,7 +135,7 @@ const AddProduct = () => {
                                             <div className="row">
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Color</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Color</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Color"
@@ -149,7 +149,7 @@ const AddProduct = () => {
 
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Count In Stock</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Count In Stock</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="count In Stock"
@@ -163,7 +163,7 @@ const AddProduct = () => {
 
                                                 <div className="col-md-4">
                                                     <Form.Group className="mb-4" controlId="formBasicStreetNumber">
-                                                        <Form.Label>Price</Form.Label>
+                                                        <Form.Label style={{color:"#D8E2DC"}}>Price</Form.Label>
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="Price"
@@ -177,7 +177,7 @@ const AddProduct = () => {
                                             </div>
 
                                             <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Label>Description<span className="text-danger">*</span></Form.Label>
+                                                <Form.Label style={{color:"#D8E2DC"}}>Description<span className="text-danger">*</span></Form.Label>
                                                 <Form.Control
                                                     as="textarea" rows={3}
                                                     required type="text"
@@ -187,7 +187,7 @@ const AddProduct = () => {
                                             </Form.Group>
 
                                             <div className="mb-3 d-flex justify-content-center">
-                                                <Button type="submit">Add</Button>
+                                                <Button style={{ backgroundColor: "#694F5D" }} type="submit">Add</Button>
                                             </div>
 
                                         </Form>

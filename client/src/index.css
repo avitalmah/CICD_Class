@@ -20,3 +20,9 @@ code {
   width: 100%;
   height: 40vh;
 }
+.card {
+  margin-bottom: 3;
+}
+li { color: #BFD3C1; } /* bullet */
+li span { color: #BFD3C1; } /* text */
+li link { color: #BFD3C1}
