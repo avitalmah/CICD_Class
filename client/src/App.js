@@ -14,6 +14,7 @@ import VerifyPinCodePassword from './page/verifyPinCodePassword/VerifyPinCodePas
 import ChangePassword from './page/changePassword/ChangePassword';
 import PushMessage from './managerPage/pushMessage/PushMessage';
 import OrderPage from './page/orderPage/OrderPage';
+import OrderHistoryPage from './page/orderHistoryPage/OrderHistoryPage';
 import AddDelivery from './managerPage/addDelivery/AddDelivery';
 import DeliveryOptions from './managerPage/deliveryOptions/DeliveryOptions';
 import AddProduct from './managerPage/addProduct/AddProduct';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/shipping" exact component={ShippingAddressPage} />
           <Route path="/payment" exact component={PaymentPage} />
           <Route path="/profile" exact component={ProfilePage} />
+          <Route path="/orderhistory" exact component={OrderHistoryPage} />
           <Route path="/order/:id" exact component={OrderPage} />
           <Route path="/resetpassword" exact component={ResetPassword} />
           <Route path="/resetpasswordpin" exact component={VerifyPinCodePassword} />
