@@ -18,6 +18,21 @@ managerRouter.get(
   })
 );
 
+managerRouter.get('/orders/:userOrderEmail',
+  expressAsyncHandler(async (req, res) => {
+    if (Order.find({ userEmail: req.params.userOrderEmail })) {
+      const orders = await Order.find({ userEmail: req.params.userOrderEmail });
+      res.send(orders);
+    }
+  })
+);
+// managerRouter.get('/orders/:orderNumber',
+//   expressAsyncHandler(async (req, res) => {
+//     const orders = await Order.findById(req.params.orderNumber);
+//     res.send(orders);
+//   })
+// );
+
 managerRouter.delete('/delivery/:deliveryName',
   expressAsyncHandler(async (req, res) => {
     console.log(req.params.deliveryName);
@@ -108,7 +123,7 @@ managerRouter.put(
       checkProduct.image = req.body.image || checkProduct.image;
       checkProduct.brand = req.body.brand || checkProduct.brand;
       checkProduct.category = req.body.category || checkProduct.category;
-      checkProduct.color =  req.body.color || checkProduct.color;
+      checkProduct.color = req.body.color || checkProduct.color;
       checkProduct.size = req.body.size || checkProduct.size;
       checkProduct.type = req.body.type || checkProduct.type;
       checkProduct.description = req.body.description || checkProduct.description;
@@ -119,7 +134,7 @@ managerRouter.put(
 
       await checkProduct.save();
       res.send({
-         message: 'Product Update' ,
+        message: 'Product Update',
       });
     } else {
       res.status(404).send({ message: 'Product not found' });
