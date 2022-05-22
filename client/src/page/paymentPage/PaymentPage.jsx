@@ -48,34 +48,30 @@ const PaymentPage = () => {
 
 
     const submitHandler = async () => {
-        ctxDispatch({ type: 'CART_CLEAR' });
-        history.push('/');
-
-        // try {
-        //     dispatch({ type: 'CREATE_REQUEST' });
-
-        //     const { data } = await axios.post(
-        //         '/api/orders',
-        //         {
-        //             orderItems: cart.cartItems,
-        //             shippingAddress: cart.shippingAddress,
-        //             itemsPrice: cart.itemsPrice,
-        //             shippingPrice: cart.shippingPrice,
-        //         },
-        //         {
-        //             headers: {
-        //                 authorization: `Bearer ${userInfo.token}`,
-        //             },
-        //         }
-        //     );
-        //     ctxDispatch({ type: 'CART_CLEAR' });
-        //     dispatch({ type: 'CREATE_SUCCESS' });
-        //     localStorage.removeItem('cartItems');
-        //     history.push('/');
-        // } catch (err) {
-        //     dispatch({ type: 'CREATE_FAIL' });
-        //     toast.error(getError(err));
-        // }
+        try {
+            dispatch({ type: 'CREATE_REQUEST' });
+      
+            const { data } = await axios.post(
+              '/api/orders',
+              {
+                orderItems: cart.cartItems,
+                shippingAddress: cart.shippingAddress,
+                totalPrice: cart.totalPrice,
+              },
+              {
+                headers: {
+                  authorization: `Bearer ${userInfo.token}`,
+                },
+              }
+            );
+            ctxDispatch({ type: 'CART_CLEAR' });
+            dispatch({ type: 'CREATE_SUCCESS' });
+            localStorage.removeItem('cartItems');
+            history.push(`/order/${data.order._id}`);
+          } catch (err) {
+            dispatch({ type: 'CREATE_FAIL' });
+            toast.error(getError(err));
+          }
     };
 
     return (

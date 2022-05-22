@@ -22,8 +22,14 @@ const orderSchema = new mongoose.Schema(
       streetNumber: { type: Number, required: true },
       aptNumber: { type: Number, required: true },
       zip: { type: Number, required: true },
+      deliveryName: {type: String, required: true },
+      minDays: { type: Number, required: true },
+      maxDays: { type: Number, required: true },
+      deliveryPrice: { type: Number, required: true },
+
     },
-    itemsPrice: { type: Number, required: true },
+    totalPrice: { type: Number, required: true },
+    isDelivered: { type: Boolean, default: false },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   },
   {
