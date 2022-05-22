@@ -82,59 +82,57 @@ const OrderPage = () => {
                                                 </Col>
                                             </Row>
                                             <Row>
-                                                <Col md={8} className="justify-content-center">
-                                                    <Card className="mb-3">
-                                                        <Card.Body>
-                                                            <Card.Title>Shipping</Card.Title>
-                                                            <Card.Text>
-                                                                <strong>Country:</strong> {order.shippingAddress.country} <br />
-                                                                <strong>City:</strong> {order.shippingAddress.city} <br />
-                                                                <strong>Street:</strong> {order.shippingAddress.street} <br />
-                                                                <strong>Street Number:</strong> {order.shippingAddress.streetNumber} <br />
-                                                                <strong>Apartment Number:</strong> {order.shippingAddress.aptNumber} <br />
-                                                                <strong>ZIP:</strong> {order.shippingAddress.zip} <br />
-                                                                <strong>Delivery Name:</strong> {order.shippingAddress.deliveryName} <br />
-                                                                <strong>Delivery Min Days:</strong> {order.shippingAddress.minDays} <br />
-                                                                <strong>Delivery Max Days:</strong> {order.shippingAddress.maxDays} <br />
-                                                                <strong>Delivery Price:</strong> ${order.shippingAddress.deliveryPrice} <br />
-                                                                <strong>Date Of Order:</strong> ${order.createdAt} <br />
-                                                            </Card.Text>
-                                                            {order.isDelivered ? (
-                                                                <MessageAlert variant="success">
-                                                                    Delivered at {order.deliveredAt}
-                                                                </MessageAlert>
-                                                            ) : (
-                                                                <MessageAlert variant="danger">Order Not Delivered Yet</MessageAlert>
-                                                            )}
-                                                        </Card.Body>
-                                                    </Card>
+                                                <Card className="mb-3">
+                                                    <Card.Body>
+                                                        <Card.Title>Shipping</Card.Title>
+                                                        <Card.Text>
+                                                            <strong>Country:</strong> {order.shippingAddress.country} <br />
+                                                            <strong>City:</strong> {order.shippingAddress.city} <br />
+                                                            <strong>Street:</strong> {order.shippingAddress.street} <br />
+                                                            <strong>Street Number:</strong> {order.shippingAddress.streetNumber} <br />
+                                                            <strong>Apartment Number:</strong> {order.shippingAddress.aptNumber} <br />
+                                                            <strong>ZIP:</strong> {order.shippingAddress.zip} <br />
+                                                            <strong>Delivery Name:</strong> {order.shippingAddress.deliveryName} <br />
+                                                            <strong>Delivery Min Days:</strong> {order.shippingAddress.minDays} <br />
+                                                            <strong>Delivery Max Days:</strong> {order.shippingAddress.maxDays} <br />
+                                                            <strong>Delivery Price:</strong> ${order.shippingAddress.deliveryPrice} <br />
+                                                            <strong>Date Of Order:</strong> ${order.createdAt} <br />
+                                                        </Card.Text>
+                                                        {order.isDelivered ? (
+                                                            <MessageAlert variant="success">
+                                                                Delivered at {order.deliveredAt}
+                                                            </MessageAlert>
+                                                        ) : (
+                                                            <MessageAlert variant="danger">Order Not Delivered Yet</MessageAlert>
+                                                        )}
+                                                    </Card.Body>
+                                                </Card>
 
-                                                    <Card className="mb-3">
-                                                        <Card.Body>
-                                                            <Card.Title>Items</Card.Title>
-                                                            <ListGroup variant="flush">
-                                                                {order.orderItems.map((item) => (
-                                                                    <ListGroup.Item key={item._id}>
-                                                                        <Row className="align-items-center">
-                                                                            <Col md={6}>
-                                                                                <img
-                                                                                    src={item.image}
-                                                                                    alt={item.title}
-                                                                                    className="img-fluid rounded img-thumbnail"
-                                                                                ></img>{' '}
-                                                                                <Link to={`/product/${item.slug}`}>{item.name}</Link>
-                                                                            </Col>
-                                                                            <Col md={3}>
-                                                                                <span>{item.quantity}</span>
-                                                                            </Col>
-                                                                            <Col md={3}>${item.price}</Col>
-                                                                        </Row>
-                                                                    </ListGroup.Item>
-                                                                ))}
-                                                            </ListGroup>
-                                                        </Card.Body>
-                                                    </Card>
-                                                </Col>
+                                                <Card className="mb-3">
+                                                    <Card.Body>
+                                                        <Card.Title>Items</Card.Title>
+                                                        <ListGroup variant="flush">
+                                                            {order.orderItems.map((item) => (
+                                                                <ListGroup.Item key={item._id}>
+                                                                    <Row className="align-items-center">
+                                                                        <Col md={6}>
+                                                                            <img
+                                                                                src={item.image}
+                                                                                alt={item.title}
+                                                                                className="img-fluid rounded img-thumbnail"
+                                                                            ></img>{' '}
+                                                                            <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                                                                        </Col>
+                                                                        <Col md={3}>
+                                                                            <span>{item.quantity}</span>
+                                                                        </Col>
+                                                                        <Col md={3}>${item.price}</Col>
+                                                                    </Row>
+                                                                </ListGroup.Item>
+                                                            ))}
+                                                        </ListGroup>
+                                                    </Card.Body>
+                                                </Card>
                                             </Row>
                                         </div>
                                     </div>

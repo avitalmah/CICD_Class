@@ -120,5 +120,16 @@ userRouter.put(
     }
   })
 );
+userRouter.delete('/delete/:email',
+expressAsyncHandler(async (req, res) => {
+  const user = await User.findOne({ email: req.params.email });
+  if (user) {
+    await user.remove();
+    res.send({ message: 'User Deleted' });
+  } else {
+    res.status(404).send({ message: 'User Not Found' });
+  }
+})
+);
 
 export default userRouter;

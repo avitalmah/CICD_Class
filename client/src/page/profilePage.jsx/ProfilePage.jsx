@@ -25,6 +25,7 @@ const ProfilePage = () => {
     // here some logic
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { userInfo } = state;
+    const history = useHistory();
 
     const [firstName, setFirstName] = useState(userInfo.firstName);
     const [lastName, setLastName] = useState(userInfo.lastName);
@@ -37,12 +38,30 @@ const ProfilePage = () => {
     const [zip, setZip] = useState(userInfo.zip);
     const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
         loadingUpdate: false,
-      });
+    });
 
 
     useEffect(() => {
 
     }, []);
+
+    const deleteHandler = async () => {
+        window.alert(email);
+        if (window.confirm('Are you sure to delete?')) {
+            try {
+                await axios.delete(`/api/users/delete/${email}`, {
+                    email,
+                });
+                toast.success('User deleted successfully');
+                history.push('/');
+                ctxDispatch({ type: 'USER_SIGNOUT' });
+                localStorage.removeItem('userInfo');
+            } catch (error) {
+                toast.error(getError(error));
+            }
+        }
+
+    };
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -216,9 +235,10 @@ const ProfilePage = () => {
                                             <div className="mb-3">
                                                 <Button style={{ backgroundColor: "#694F5D" }} type="submit">Update</Button>
                                             </div>
-
                                         </Form>
-
+                                        <div className="mb-3">
+                                            <Button onClick={() => deleteHandler()} style={{ backgroundColor: "#694F5D" }} type="submit">Delete User</Button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
