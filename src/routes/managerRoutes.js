@@ -2,6 +2,7 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Delivery from '../dbModels/delivery.js';
 import Product from '../dbModels/product.js';
+import Order from '../dbModels/order.js';
 const managerRouter = express.Router();
 
 managerRouter.get('/deliveries', async (req, res) => {
@@ -9,6 +10,13 @@ managerRouter.get('/deliveries', async (req, res) => {
   console.log(Deliveries);
   res.send(Deliveries);
 });
+managerRouter.get(
+  '/orders',
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find().sort({ createdAt: -1 });
+    res.send(orders);
+  })
+);
 
 managerRouter.delete('/delivery/:deliveryName',
   expressAsyncHandler(async (req, res) => {

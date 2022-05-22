@@ -100,7 +100,7 @@ const OrderPage = () => {
                                                         </Card.Text>
                                                         {order.isDelivered ? (
                                                             <MessageAlert variant="success">
-                                                                Delivered at {order.deliveredAt}
+                                                                Order Delivered
                                                             </MessageAlert>
                                                         ) : (
                                                             <MessageAlert variant="danger">Order Not Delivered Yet</MessageAlert>

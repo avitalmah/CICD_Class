@@ -54,6 +54,7 @@ const Header = () => {
                 <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/delivery" className="nav-link">Deliveries Options</Link></NavDropdown.Item>
                 <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/addproduct" className="nav-link">Add Product</Link></NavDropdown.Item>
                 <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/editcatalog" className="nav-link">Edit Catalog</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link style={{color:"#BFD3C1"}} to="/admin/orders" className="nav-link">Orders</Link></NavDropdown.Item>
               </NavDropdown>
             </Nav>
 

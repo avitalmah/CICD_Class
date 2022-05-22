@@ -30,6 +30,7 @@ const orderSchema = new mongoose.Schema(
     },
     totalPrice: { type: Number, required: true },
     isDelivered: { type: Boolean, default: false },
+    userEmail: { type: String, required: true },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   },
   {

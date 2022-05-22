@@ -21,6 +21,7 @@ import AddProduct from './managerPage/addProduct/AddProduct';
 import EditCatalog from './managerPage/editCatalog/EditCatalog';
 import EditProduct from './managerPage/editProduct/EditProduct';
 import ContactUsPage from './page/contactUs/ContactUsPage';
+import OrdersManagerPage from './managerPage/ordersManagerPage/OrdersManagerPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchPage from './page/searchpage/SearchPage';
@@ -51,6 +52,7 @@ function App() {
           <Route path="/contactus" exact component={ContactUsPage} />
           <Route path="/admin/dashboard" exact component={Dashboard} />
           <Route path="/admin/pushmessage" exact component={PushMessage} />
+          <Route path="/admin/orders" exact component={OrdersManagerPage} />
           <Route path="/admin/adddeliveryoption" exact component={AddDelivery} />
           <Route path="/admin/delivery" exact component={DeliveryOptions} />
           <Route path="/search" exact component={SearchPage} />

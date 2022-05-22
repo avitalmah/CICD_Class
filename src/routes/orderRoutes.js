@@ -12,6 +12,7 @@ orderRouter.post(
       orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
       shippingAddress: req.body.shippingAddress,
       totalPrice: req.body.totalPrice,
+      userEmail: req.body.userEmail,
       user: req.user._id,
     });
 

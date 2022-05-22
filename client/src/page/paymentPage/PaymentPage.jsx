@@ -40,7 +40,6 @@ const PaymentPage = () => {
     cart.totalPrice = cart.itemsPrice + cart.shippingAddress.deliveryPrice;
 
     useEffect(() => {
-        window.alert(cart.shippingAddress.country)
         if (!userInfo) {
             history.push('/signin?redirect=/shipping');
         }
@@ -57,6 +56,7 @@ const PaymentPage = () => {
                 orderItems: cart.cartItems,
                 shippingAddress: cart.shippingAddress,
                 totalPrice: cart.totalPrice,
+                userEmail: userInfo.email,
               },
               {
                 headers: {
