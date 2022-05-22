@@ -46,7 +46,6 @@ const ProfilePage = () => {
     }, []);
 
     const deleteHandler = async () => {
-        window.alert(email);
         if (window.confirm('Are you sure to delete?')) {
             try {
                 await axios.delete(`/api/users/delete/${email}`, {
