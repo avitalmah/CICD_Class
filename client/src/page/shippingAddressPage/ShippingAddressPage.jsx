@@ -1,13 +1,30 @@
-import { useState, useEffect, useMemo, useContext } from "react";
+import { useState, useEffect, useMemo, useContext, useReducer } from "react";
 import axios from "axios";
 // import { useHistory } from "react-router-dom";
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Table } from 'react-bootstrap';
 import countryList from 'react-select-country-list';
 import Select from 'react-select';
+import logger from 'use-reducer-logger';
 import { Store } from '../../Store';
 import { toast } from 'react-toastify';
+import { Check } from 'react-bootstrap-icons';
 import { getError } from '../../utils';
+import { CFormCheck } from '@coreui/bootstrap-react'
+
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'FETCH_REQUEST':
+            return { ...state, loading: true };
+        case 'FETCH_SUCCESS':
+            return { ...state, deliveries: action.payload, loading: false };
+        case 'FETCH_FAIL':
+            return { ...state, loading: false, error: action.payload };
+        default:
+            return state;
+    }
+};
 
 const ShippingAddressPage = () => {
 
@@ -22,9 +39,33 @@ const ShippingAddressPage = () => {
     const [aptNumber, setAptNumber] = useState(userInfo.aptNumber || "");
     const [zip, setZip] = useState(userInfo.zip || "");
     const [country, setCountry] = useState("");
+    const [deliveryName, setDdeliveryName] = useState('');
+    const [minDays, setMminDays] = useState('');
+    const [maxDays, setMmaxDays] = useState('');
+    const [deliveryPrice, setDdeliveryPrice] = useState('');
+    const [flag, setFlag] = useState(false);
     const options = useMemo(() => countryList().getData(), []);
 
+    const [{ loading, error, deliveries }, dispatch] = useReducer(logger(reducer), {
+        deliveries: [],
+        loading: true,
+        error: '',
+    });
 
+    useEffect(() => {
+        const fetchData = async () => {
+            dispatch({ type: 'FETCH_REQUEST' });
+            try {
+                const result = await axios.get('/api/manager/deliveries');
+                dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+            } catch (err) {
+                dispatch({ type: 'FETCH_FAIL', payload: err.message });
+            }
+
+            // setProducts(result.data);
+        };
+        fetchData();
+    }, []);
 
     useEffect(() => {
         if (!userInfo) {
@@ -35,12 +76,22 @@ const ShippingAddressPage = () => {
 
     const countryHandler = country => {
         setCountry(country.label);
-        window.alert(country);
+    };
 
+    const addShippingMethod = (delivery) => {
+        setDdeliveryName(delivery.deliveryName);
+        setMminDays(delivery.minDays);
+        setMmaxDays(delivery.maxDays);
+        setDdeliveryPrice(delivery.deliveryPrice);
+        setFlag(true);
     };
 
     const submitHandler = (e) => {
-        if (country === "") {
+        if (flag === false){
+            toast.error("must select delivery method before continue to payment");
+            e.preventDefault();
+        }
+        else if (country === "") {
             toast.error("must select country before continue to payment");
             e.preventDefault();
 
@@ -53,6 +104,10 @@ const ShippingAddressPage = () => {
             shippingAddress.streetNumber = streetNumber;
             shippingAddress.aptNumber = aptNumber;
             shippingAddress.zip = zip;
+            shippingAddress.deliveryName = deliveryName;
+            shippingAddress.minDays = minDays;
+            shippingAddress.maxDays = maxDays;
+            shippingAddress.deliveryPrice = deliveryPrice;
             e.preventDefault();
             ctxDispatch({
                 type: 'SAVE_SHIPPING_ADDRESS',
@@ -63,6 +118,11 @@ const ShippingAddressPage = () => {
                     streetNumber,
                     aptNumber,
                     zip,
+                    deliveryName,
+                    minDays,
+                    maxDays,
+                    deliveryPrice
+
                 },
             });
             localStorage.setItem(
@@ -74,6 +134,11 @@ const ShippingAddressPage = () => {
                     streetNumber,
                     aptNumber,
                     zip,
+                    deliveryName,
+                    minDays,
+                    maxDays,
+                    deliveryPrice,
+
                 })
             );
             history.push('/payment');
@@ -82,12 +147,12 @@ const ShippingAddressPage = () => {
 
     return (
         <div >
-            <div className=" bg-image" style={{ backgroundColor: "#694F5D" }}  >
+            <div className="bg-image" style={{ backgroundColor: "#694F5D" }}  >
                 <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                                <div className="card" itemID="check">
+                                <div className="card m-5" itemID="check">
                                     <div className="card-body p-5" style={{ backgroundColor: "#BFD3C1" }} >
                                         <h2 className="text-uppercase text-center mb-5" style={{ color: "#D8E2DC" }}>Shipping Adress</h2>
 
@@ -172,6 +237,33 @@ const ShippingAddressPage = () => {
                                                             onChange={(e) => setZip(e.target.value)} />
                                                     </Form.Group>
                                                 </div>
+                                            </div>
+                                            <div>
+                                                <h1>Deliveries</h1>
+                                                <Table className="justify-content-center" striped bordered hover variant="dark">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Delivery Name</th>
+                                                            <th>Min Days</th>
+                                                            <th>Max Days</th>
+                                                            <th>Delivery Price</th>
+                                                        </tr>
+                                                    </thead>
+                                                    {deliveries.map((delivery) => (
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><input type="radio" onClick={() => addShippingMethod(delivery)} name="aa"></input></td>
+                                                                <td>{delivery.deliveryName}</td>
+                                                                <td>{delivery.minDays}</td>
+                                                                <td>{delivery.maxDays}</td>
+                                                                <td>${delivery.deliveryPrice}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    ))}
+                                                </Table>
+
                                             </div>
                                             <div className="mb-3">
                                                 <Button style={{ backgroundColor: "#694F5D" }} type="submit">Continue</Button>

@@ -30,9 +30,14 @@ const PaymentPage = () => {
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { cart, userInfo } = state;
     // here some logic
-
+    const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
+    cart.itemsPrice = round2(
+      cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
+    );
 
     cart.itemsPrice = cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0);
+
+    cart.totalPrice = cart.itemsPrice + cart.shippingAddress.deliveryPrice;
 
     useEffect(() => {
         window.alert(cart.shippingAddress.country)
@@ -174,6 +179,10 @@ const PaymentPage = () => {
                                                         <strong>Street Number:</strong> {cart.shippingAddress.streetNumber} <br />
                                                         <strong>Apartment Number:</strong> {cart.shippingAddress.aptNumber} <br />
                                                         <strong>ZIP:</strong> {cart.shippingAddress.zip} <br />
+                                                        <strong>Delivery Name:</strong> {cart.shippingAddress.deliveryName} <br />
+                                                        <strong>Delivery Min Days:</strong> {cart.shippingAddress.minDays} <br />
+                                                        <strong>Delivery Max Days:</strong> {cart.shippingAddress.maxDays} <br />
+                                                        <strong>Delivery Price:</strong> ${cart.shippingAddress.deliveryPrice} <br />
                                                     </Card.Text>
                                                     <Link to="/shipping" className="fw-bold text-body">Edit</Link>
                                                 </Card.Body>
@@ -205,6 +214,8 @@ const PaymentPage = () => {
                                                     </ListGroup>
                                                 </Card.Body>
                                             </Card>
+                                            <h2 className="text-uppercase text-center mb-5">Total Price</h2>
+                                            <h5 className="text-uppercase text-center mb-5">${cart.totalPrice}</h5>
 
                                             <div className="mb-3 d-flex justify-content-center">
                                                 <Button style={{ backgroundColor: "#694F5D" }} type="submit" >Pay</Button>
