@@ -19,6 +19,11 @@ const initialState = {
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
     },
+    wishlist: {
+        wishlistItems: localStorage.getItem('wishlistItems')
+            ? JSON.parse(localStorage.getItem('wishlistItems'))
+            : [],
+    },
 };
 function reducer(state, action) {
     switch (action.type) {
@@ -44,6 +49,30 @@ function reducer(state, action) {
         };
         case 'CART_CLEAR':
             return { ...state, cart: { ...state.cart, cartItems: [] } };
+            /////////////////////////////////////////////////////////////
+        case 'WISH_LIST_ADD_ITEM':
+            // add to wishlist
+            const newItemtowishlist = action.payload;
+            const existItemwishlist = state.wishlist.wishlistItems.find(
+                (item) => item._id === newItemtowishlist._id
+            );
+            const wishlistItems = existItemwishlist
+                ? state.wishlist.wishlistItems.map((item) =>
+                    item._id === existItemwishlist._id ? newItemtowishlist : item
+                )
+                : [...state.wishlist.wishlistItems, newItemtowishlist];
+            localStorage.setItem('cartItems', JSON.stringify(wishlistItems));
+            return { ...state, wishlist: { ...state.wishlist, wishlistItems } };
+        case 'WISH_LIST_REMOVE_ITEM': {
+            const wishlistItems = state.wishlist.wishlistItems.filter(
+                (item) => item._id !== action.payload._id
+            );
+            localStorage.setItem('cartItems', JSON.stringify(wishlistItems));
+            return { ...state, wishlist: { ...state.wishlist, wishlistItems } };
+        };
+        case 'WISH_LIST_CLEAR':
+            return { ...state, WISH_LIST: { ...state.WISH_LIST, wishlistItems: [] } };
+    
 
         case 'USER_SIGNIN':
             return { ...state, userInfo: action.payload };
