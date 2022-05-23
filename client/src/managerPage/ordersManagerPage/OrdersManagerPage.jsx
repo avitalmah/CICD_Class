@@ -69,7 +69,7 @@ const OrdersManagerPage = () => {
     //         dispatch({ type: 'FETCH_REQUEST' });
     //         try {
     //             const { data } = await axios.get(
-    //                 `/api/manager/orders/${orderNumber}`,
+    //                 `/api/manager/orders/ordernumber/${orderNumber}`,
     //             );
     //             dispatch({ type: 'FETCH_SUCCESS', payload: data });
     //         } catch (error) {

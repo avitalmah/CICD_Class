@@ -26,7 +26,19 @@ managerRouter.get('/orders/:userOrderEmail',
     }
   })
 );
-// managerRouter.get('/orders/:orderNumber',
+managerRouter.put('/orders/delivery',
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.body.orderId);
+    if (order) {
+      order.isDelivered = true ;
+      const updatedOrder = await order.save();
+      res.send(order);
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+// managerRouter.get('/orders/ordernumber/:orderNumber',
 //   expressAsyncHandler(async (req, res) => {
 //     const orders = await Order.findById(req.params.orderNumber);
 //     res.send(orders);
