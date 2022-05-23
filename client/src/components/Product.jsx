@@ -1,5 +1,5 @@
 // import Card from 'react-bootstrap/Card';
-import { Button, Card} from 'react-bootstrap';
+import { Row, Col, Button, Card} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Rating from './Rating';
 import axios from 'axios';
@@ -16,7 +16,10 @@ function Product(props) {
   const {
     cart: { cartItems },
   } = state;
-  const { userInfo, cart } = state;
+  const {
+    wishlist: { wishlistItems },
+  } = state;
+  const { userInfo, cart , wishlist } = state;
   const history = useHistory();
 
   const addToCartHandler = async () => {
@@ -39,6 +42,26 @@ function Product(props) {
       history.render();
     };
   }
+  const addToWishListHandler = async () => {
+    if (userInfo === null) { 
+      toast.error("Must login before add to cart");
+      history.push('/signin');
+    }
+    else {
+      const existItem = wishlist.wishlistItems.find((x) => x._id === product._id);
+      const quantity = existItem ? existItem.quantity + 1 : 1;
+      const { data } = await axios.get(`/api/products/${product._id}`);
+      if (data.countInStock < quantity) {
+        window.alert('Sorry. Product is out of stock');
+        return;
+      }
+      ctxDispatch({
+        type: 'WISH_LIST_ADD_ITEM',
+        payload: { ...product, quantity },
+      });
+      history.render();
+    };
+  }
 
   return (
     <Card>
@@ -56,7 +79,11 @@ function Product(props) {
             Out of stock
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          <Row>
+            <Col><Button onClick={() => addToCartHandler(product)}>Add to cart</Button></Col>
+          <Col><Button onClick={() => addToWishListHandler(product)}>Add to wishlist</Button></Col>
+          
+          </Row>
         )}
       </Card.Body>
     </Card>

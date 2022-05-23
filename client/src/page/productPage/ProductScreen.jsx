@@ -29,7 +29,7 @@ function ProductScreen() {
   const { slug } = params;
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { cart, userInfo } = state;
+  const { cart, userInfo ,wishlist} = state;
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
@@ -64,6 +64,26 @@ function ProductScreen() {
       }
       ctxDispatch({
         type: 'CART_ADD_ITEM',
+        payload: { ...product, quantity },
+      });
+      history.render();
+    };
+  }
+  const addToWishListHandler = async () => {
+    if (userInfo === null) {
+      toast.error("Must login before add to wishlist");
+      history.push('/signin');
+    }
+    else {
+      const existItem = wishlist.wishlistItems.find((x) => x._id === product._id);
+      const quantity = existItem ? existItem.quantity + 1 : 1;
+      const { data } = await axios.get(`/api/products/${product._id}`);
+      if (data.countInStock < quantity) {
+        window.alert('Sorry. Product is out of stock');
+        return;
+      }
+      ctxDispatch({
+        type: 'WISH_LIST_ADD_ITEM',
         payload: { ...product, quantity },
       });
       history.render();
@@ -111,7 +131,14 @@ function ProductScreen() {
                           Out of stock
                         </Button>
                       ) : (
-                        <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToCartHandler()}>Add to cart</Button>
+                        <Row>
+                        <Col>
+                          <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToCartHandler()}>Add to cart</Button>
+                        </Col>
+                        <Col>
+                          <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToWishListHandler()}>Add to WishList</Button>
+                        </Col>
+                        </Row>
                       )}
                       <Button style={{ backgroundColor: "#694F5D" }} className='mx-3' variant="light" onClick={() => editHandler()} >
                         Edit
@@ -154,11 +181,18 @@ function ProductScreen() {
                       <Card.Text style={{ color: "#D8E2DC" }}><strong>Description: </strong>{product.description}</Card.Text>
                       <Card.Text style={{ color: "#D8E2DC" }}><strong>Price: </strong>${product.price}</Card.Text>
                       {product.countInStock === 0 ? (
-                        <Button  variant="light" disabled>
+                        <Button variant="light" disabled>
                           Out of stock
                         </Button>
                       ) : (
-                        <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToCartHandler()}>Add to cart</Button>
+                        <Row>
+                          <Col>
+                            <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToCartHandler()}>Add to cart</Button>
+                          </Col>
+                          <Col>
+                            <Button style={{ backgroundColor: "#694F5D" }} onClick={() => addToWishListHandler()}>Add to WishList</Button>
+                          </Col>
+                          </Row>
                       )}
 
                     </div>
