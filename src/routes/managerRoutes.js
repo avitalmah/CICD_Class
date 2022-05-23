@@ -32,7 +32,7 @@ managerRouter.put('/orders/delivery',
     if (order) {
       order.isDelivered = true ;
       const updatedOrder = await order.save();
-      res.send(order);
+      res.send(updatedOrder);
     } else {
       res.status(404).send({ message: 'Order Not Found' });
     }
