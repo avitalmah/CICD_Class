@@ -1,8 +1,8 @@
-import { useEffect, useContext, useReducer } from "react";
+import { useEffect, useContext, useReducer, useRef, useState } from "react";
 import axios from "axios";
 // import { useHistory } from "react-router-dom";
 import { Link, useParams, useHistory } from 'react-router-dom';
-import { Form, Button, Card, ListGroup, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, ListGroup, Row, Col, FloatingLabel } from 'react-bootstrap';
 import { Store } from '../../Store';
 import { toast } from 'react-toastify';
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -26,7 +26,8 @@ function reducer(state, action) {
 const OrderPage = () => {
     const { state } = useContext(Store);
     const { userInfo } = state;
-
+    const [rating, setRating] = useState(0);
+    const revRef = useRef();
     const params = useParams();
     const { id: orderId } = params;
     const history = useHistory();
@@ -37,7 +38,9 @@ const OrderPage = () => {
         error: '',
     });
 
+
     useEffect(() => {
+        //window.alert(new Date().toISOString().slice(0, 10));
         const fetchOrder = async () => {
             try {
                 dispatch({ type: 'FETCH_REQUEST' });
@@ -58,6 +61,8 @@ const OrderPage = () => {
         }
     }, [order, userInfo, orderId, history]);
 
+
+
     const submitHandler = async () => {
         try {
             dispatch({ type: 'CREATE_REQUEST' });
@@ -75,6 +80,22 @@ const OrderPage = () => {
             toast.error(getError(err));
         }
     };
+
+    const deleteHandler = async () => {
+        if (window.confirm('Are you sure to cancel the order?')) {
+            try {
+                await axios.delete(`/api/orders/deleteorder/${orderId}`, {
+                });
+                toast.success('Order canceled successfully');
+                history.push('/');
+            } catch (error) {
+                toast.error(getError(error));
+            }
+        }
+
+    };
+
+
 
     if (userInfo && userInfo.isAdmin)
         return (
@@ -241,12 +262,18 @@ const OrderPage = () => {
                                                                                 <span>{item.quantity}</span>
                                                                             </Col>
                                                                             <Col md={3}>${item.price}</Col>
+                                                                            <Col>
+                                                                                <div className="my-3">
+                                                                                    <Link to={`/rateproduct/${item._id}`}><h2>Rate Product</h2></Link>
+                                                                                </div>
+                                                                            </Col>
                                                                         </Row>
                                                                     </ListGroup.Item>
                                                                 ))}
                                                             </ListGroup>
                                                         </Card.Body>
                                                     </Card>
+                                                    <Button variant="danger" onClick={() => deleteHandler()}>Cancel Order</Button>
                                                 </Row>
                                             </div>
                                         </div>

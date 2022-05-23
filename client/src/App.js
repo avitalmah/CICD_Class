@@ -10,6 +10,7 @@ import PaymentPage from './page/paymentPage/PaymentPage';
 import ProfilePage from './page/profilePage.jsx/ProfilePage';
 import Dashboard from './managerPage/dashboard/Dashboard';
 import ResetPassword from './page/resetPassword/ResetPassword';
+import RateProduct from './page/rateProduct/RateProduct';
 import VerifyPinCodePassword from './page/verifyPinCodePassword/VerifyPinCodePassword';
 import ChangePassword from './page/changePassword/ChangePassword';
 import PushMessage from './managerPage/pushMessage/PushMessage';
@@ -37,6 +38,7 @@ function App() {
         <Header></Header>
         <Switch className="mt-3">
           <Route path="/product/:slug" exact component={ProductScreen} />
+          <Route path="/rateproduct/:id" exact component={RateProduct} />
           <Route path="/" exact component={HomePage} />
           <Route path="/cart" exact component={CartPage} />
           <Route path="/About" exact component={AboutPage} />
