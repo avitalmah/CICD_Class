@@ -1,5 +1,6 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
+import nodemailer from 'nodemailer';
 import Order from '../dbModels/order.js';
 //import Product from '../dbModels/product.js';
 import { isAuth } from '../utils.js';
@@ -18,9 +19,21 @@ orderRouter.post(
     });
 
     const order = await newOrder.save();
-    // req.body.orderItems.map((x)=> ({ 
-    //     const product = await Product.find({ });
-    //  }))
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'theperfectgroup8@gmail.com',
+        pass: 'project2022'
+      }
+    });
+    transporter.sendMail({
+      from: 'theperfectgroup8@gmail.com',
+      to: `${req.body.userEmail}`,
+      subject: 'Order Complete',
+      html: `<h3>Order ${order._id}</h3>
+      <p>Thank you for choosing to place an order through us.<br>
+      We will make every effort so that the shipment arrives as soon as possible</p>`, // html body
+    });
     res.status(201).send({ message: 'New Order Created', order });
   })
 );
