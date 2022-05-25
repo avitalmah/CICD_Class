@@ -26,11 +26,39 @@ managerRouter.get('/orders/:userOrderEmail',
     }
   })
 );
+
+managerRouter.get('/staristic/:sort',
+  expressAsyncHandler(async (req, res) => {
+    const sortDate = req.params.sort;
+    var date = new Date();
+    if (sortDate === 'year') {
+      date = date.setMonth(date.getMonth() - 12);
+      const orders = await Order.find({ "createdAt": { $gte: date } });
+      res.send(orders);
+    }
+    else if (sortDate === '1month') {
+      date = date.setMonth(date.getMonth() - 1);
+      const orders = await Order.find({ "createdAt": { $gte: date } });
+      res.send(orders);
+    }
+    else if (sortDate === '6month') {
+      date = date.setMonth(date.getMonth() - 6);
+      const orders = await Order.find({ "createdAt": { $gte: date } });
+      res.send(orders);
+    }
+    else if (sortDate === 'allTime'){
+      const orders = await Order.find();
+      res.send(orders);
+    }
+
+  })
+);
+
 managerRouter.put('/orders/delivery',
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.body.orderId);
     if (order) {
-      order.isDelivered = true ;
+      order.isDelivered = true;
       const updatedOrder = await order.save();
       res.send(updatedOrder);
     } else {
