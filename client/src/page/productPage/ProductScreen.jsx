@@ -140,7 +140,7 @@ function ProductScreen() {
                         </Col>
                         </Row>
                       )}
-                      <Button style={{ backgroundColor: "#694F5D" }} className='mx-3' variant="light" onClick={() => editHandler()} >
+                      <Button style={{ backgroundColor: "#694F5D" }} className='m-3' onClick={() => editHandler()} >
                         Edit
                       </Button>
                     </div>

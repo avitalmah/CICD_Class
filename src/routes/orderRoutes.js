@@ -49,8 +49,12 @@ orderRouter.get(
 orderRouter.delete(
     '/deleteorder/:orderId',
     expressAsyncHandler(async (req, res) => {
-        console.log(req.params.orderId);
-        const order = await Order.findById(req.params.orderId);
+      var date = new Date();
+      date.setDate(date.getDate()- 3);
+      const order = await Order.findById(req.params.orderId);
+      if(date.getTime() > order.createdAt.getTime()){
+        res.status(404).send({ message: 'More than 3 days have passed since the order was placed. Unfortunately the order cannot be canceled. Please contact us' });
+      }
         if (order) {
           await order.remove();
           res.send({ message: 'Order Deleted' });
