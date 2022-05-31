@@ -222,8 +222,8 @@ const SignUp = () => {
                                                         <Form.Control
                                                             type="text"
                                                             placeholder="ZIP Code"
-                                                            pattern="[0-9]{1,10}"
-                                                            title="Must contain only digits, max length 10"
+                                                            pattern="[0-9]{5}"
+                                                            title="Must contain only 5 digits"
                                                             required name="user-zip"
                                                             value={zip}
                                                             onChange={(e) => setZip(e.target.value)} />
