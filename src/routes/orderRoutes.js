@@ -1,6 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import nodemailer from 'nodemailer';
+import Product from '../dbModels/product.js';
 import Order from '../dbModels/order.js';
 //import Product from '../dbModels/product.js';
 import { isAuth } from '../utils.js';
@@ -19,6 +20,7 @@ orderRouter.post(
     });
 
     const order = await newOrder.save();
+
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -39,41 +41,41 @@ orderRouter.post(
 );
 
 orderRouter.get(
-    '/userorders',
-    isAuth,
-    expressAsyncHandler(async (req, res) => {
-      const orders = await Order.find({ user: req.user._id}).sort({ createdAt: -1 });
-      res.send(orders);
-    })
-  );
+  '/userorders',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id }).sort({ createdAt: -1 });
+    res.send(orders);
+  })
+);
 orderRouter.delete(
-    '/deleteorder/:orderId',
-    expressAsyncHandler(async (req, res) => {
-      var date = new Date();
-      date.setDate(date.getDate()- 3);
-      const order = await Order.findById(req.params.orderId);
-      if(date.getTime() > order.createdAt.getTime()){
-        res.status(404).send({ message: 'More than 3 days have passed since the order was placed. Unfortunately the order cannot be canceled. Please contact us' });
-      }
-        if (order) {
-          await order.remove();
-          res.send({ message: 'Order Deleted' });
-        } else {
-          res.status(404).send({ message: 'Order Not Found' });
-        }
-    })
-  );
+  '/deleteorder/:orderId',
+  expressAsyncHandler(async (req, res) => {
+    var date = new Date();
+    date.setDate(date.getDate() - 3);
+    const order = await Order.findById(req.params.orderId);
+    if (date.getTime() > order.createdAt.getTime()) {
+      res.status(404).send({ message: 'More than 3 days have passed since the order was placed. Unfortunately the order cannot be canceled. Please contact us' });
+    }
+    if (order) {
+      await order.remove();
+      res.send({ message: 'Order Deleted' });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
 
 orderRouter.get(
-    '/:id',
-    isAuth,
-    expressAsyncHandler(async (req, res) => {
-      const order = await Order.findById(req.params.id);
-      if (order) {
-        res.send(order);
-      } else {
-        res.status(404).send({ message: 'Order Not Found' });
-      }
-    })
-  );
+  '/:id',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      res.send(order);
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
 export default orderRouter;

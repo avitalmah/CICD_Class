@@ -7,6 +7,9 @@ const emailRouter = express.Router();
 
 emailRouter.post('/', (req, res) => {
   const { name, email, topic, message } = req.body;
+  if (message.length > 2000){
+    res.status(500).send({ message: 'Max length of text 2000 chars' });
+  }
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
