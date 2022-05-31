@@ -12,9 +12,9 @@ function Footer() {
                                 Contact us
                             </h4>
                             <ul className="list-unstyled" >
-                                <li style={{ color: "#694F5D" }} >
-                                    Theperfectgroup8@gmail.com
-                                </li>
+                                <Nav.Item >
+                                    <Nav.Link style={{ color: "#694F5D" }} href="#/contactus">theperfectgroup8@gmail.com</Nav.Link>
+                                </Nav.Item>
                                 <li >
                                     <Nav.Item >
                                         <Nav.Link style={{ color: "#694F5D" }} href="https://www.facebook.com/profile.php?id=100081003196369">Facebook</Nav.Link>
