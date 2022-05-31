@@ -1,7 +1,6 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import nodemailer from 'nodemailer';
-import Product from '../dbModels/product.js';
 import Order from '../dbModels/order.js';
 //import Product from '../dbModels/product.js';
 import { isAuth } from '../utils.js';
